@@ -83,12 +83,6 @@ const IndexNavbar = () => {
               <NavItem>
                 <NavLink
                   href="/login-page"
-                  // onClick={e => {
-                  //   e.preventDefault();
-                  //   document
-                  //     .getElementById("signIn-section")
-                  //     .scrollIntoView();
-                  // }}
                 >
                   <p>Sign in</p>
                 </NavLink>

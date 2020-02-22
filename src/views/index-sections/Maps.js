@@ -27,7 +27,7 @@ const CustomMap = withScriptjs(
 function Maps() {
   return (
     <>
-        <Container>
+        <Container id="map-section">
           <div className='content-center brand'>
             <h1 className='h1-seo'>Our parks</h1>
           </div>

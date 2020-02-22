@@ -2,7 +2,7 @@
 import React from "react";
 
 // reactstrap components
-import { Container } from "reactstrap";
+import { Container, NavItem, NavLink } from "reactstrap";
 // core components
 
 const IndexHeader = () => {
@@ -24,23 +24,34 @@ const IndexHeader = () => {
 
   return (
     <>
-      <div className="page-header clear-filter" filter-color="blue">
+      <div className='page-header clear-filter' filter-color='blue'>
         <div
-          className="page-header-image"
+          className='page-header-image'
           style={{
             backgroundImage: "url(" + require("assets/img/header.jpg") + ")"
           }}
           ref={pageHeader}
         ></div>
         <Container>
-          <div className="content-center brand">
-            <h1 className="h1-seo">entertainment for everyone</h1>
-            <h3>Check if we are in your city</h3>
+          <div className='content-center brand'>
+            <h1 className='h1-seo'>entertainment for everyone</h1>
+            <h3>
+              Check if we are in your city on
+                <NavLink
+                  href='#pablo'
+                  onClick={e => {
+                    e.preventDefault();
+                    document.getElementById("map-section").scrollIntoView();
+                  }}
+                >
+                  Map
+                </NavLink>
+            </h3>
           </div>
         </Container>
       </div>
     </>
   );
-}
+};
 
 export default IndexHeader;
