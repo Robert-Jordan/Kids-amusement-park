@@ -89,13 +89,7 @@ const IndexNavbar = () => {
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="#pablo"
-                  onClick={e => {
-                    e.preventDefault();
-                    document
-                      .getElementById("signup-section")
-                      .scrollIntoView();
-                  }}
+                  href="/registration-page"
                 >
                   <p>Sign up</p>
                 </NavLink>

@@ -11,14 +11,6 @@ import DarkFooter from "components/Footers/DarkFooter.js";
 
 // sections for this page
 import Tabs from "./index-sections/Tabs.js";
-import Typography from "./index-sections/Typography.js";
-import Javascript from "./index-sections/Javascript.js";
-import Carousel from "./index-sections/Carousel.js";
-import NucleoIcons from "./index-sections/NucleoIcons.js";
-import CompleteExamples from "./index-sections/CompleteExamples.js";
-import SignUp from "./index-sections/SignUp.js";
-import Examples from "./index-sections/Examples.js";
-import Download from "./index-sections/Download.js";
 import Maps from "./index-sections/Maps.js";
 
 function Index() {
@@ -41,7 +33,6 @@ function Index() {
         <div className="main">
           <Tabs />
           <Maps/>
-          <SignUp />
         </div>
         <DarkFooter />
       </div>

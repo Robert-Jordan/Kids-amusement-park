@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 // reactstrap components
 import {
   Collapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
   NavbarBrand,
   Navbar,
   NavItem,
@@ -16,7 +12,7 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function ExamplesNavbar() {
+function SignInNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
@@ -53,7 +49,7 @@ function ExamplesNavbar() {
         <Container>
           <div className="navbar-translate">
             <NavbarBrand
-              href="#"
+              href="/index"
               target="_blank"
               id="navbar-brand"
             >
@@ -131,4 +127,4 @@ function ExamplesNavbar() {
   );
 }
 
-export default ExamplesNavbar;
+export default SignInNavbar;

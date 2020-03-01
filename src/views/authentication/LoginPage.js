@@ -4,6 +4,7 @@ import React from "react";
 import {
   Button,
   Card,
+  CardTitle,
   CardHeader,
   CardBody,
   CardFooter,
@@ -17,7 +18,7 @@ import {
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import SignInNavbar from "components/Navbars/SignInNavbar.js";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
 
 function LoginPage() {
@@ -36,17 +37,44 @@ function LoginPage() {
   });
   return (
     <>
-      <ExamplesNavbar />
+      <SignInNavbar />
       <div className="page-header clear-filter" filter-color="blue">    
         <div className="content">
           <Container>
             <Col className="ml-auto mr-auto" md="4">
               <Card className="card-login card-plain">
                 <Form action="" className="form" method="">
-                  <CardHeader className="text-center">
-                    <div className="logo-container">
-                    
-                    </div>
+                  <CardHeader className="tt-center">
+                  <CardTitle className='title-up' tag='h3'>
+                    Sign In
+                  </CardTitle>
+                  <div className='social-line'>
+                    <Button
+                      className='btn-neutral btn-icon btn-round'
+                      color='facebook'
+                      href='#pablo'
+                      onClick={e => e.preventDefault()}
+                    >
+                      <i className='fab fa-facebook-square'></i>
+                    </Button>
+                    <Button
+                      className='btn-neutral btn-icon btn-round'
+                      color='twitter'
+                      href='#pablo'
+                      onClick={e => e.preventDefault()}
+                      size='lg'
+                    >
+                      <i className='fab fa-twitter'></i>
+                    </Button>
+                    <Button
+                      className='btn-neutral btn-icon btn-round'
+                      color='google'
+                      href='#pablo'
+                      onClick={e => e.preventDefault()}
+                    >
+                      <i className='fab fa-google-plus'></i>
+                    </Button>
+                  </div>
                   </CardHeader>
                   <CardBody>
                     <InputGroup
@@ -61,7 +89,7 @@ function LoginPage() {
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
-                        placeholder="First Name..."
+                        placeholder="Username"
                         type="text"
                         onFocus={() => setFirstFocus(true)}
                         onBlur={() => setFirstFocus(false)}
@@ -79,7 +107,7 @@ function LoginPage() {
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
-                        placeholder="Last Name..."
+                        placeholder="Password"
                         type="text"
                         onFocus={() => setLastFocus(true)}
                         onBlur={() => setLastFocus(false)}
