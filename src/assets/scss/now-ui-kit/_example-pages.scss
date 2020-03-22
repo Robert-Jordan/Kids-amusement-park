@@ -213,7 +213,8 @@
 }
 
 .login-page,
-.profile-page {
+.profile-page,
+.signup-page {
   .page-header:before {
     position: absolute;
     z-index: 0;
@@ -227,11 +228,8 @@
   }
 }
 
-.login-page{
-
-
-
-    .card-login{
+.login-page, .signup-page {
+    .card-login, .card-signup {
         border-radius: $border-radius-large;
         padding-bottom: $padding-base-horizontal;
         max-width: 320px;

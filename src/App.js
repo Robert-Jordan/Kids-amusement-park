@@ -10,7 +10,7 @@ import "assets/demo/nucleo-icons-page-styles.css";
 import Index from "views/Index.js";
 import SignUp from "views/registration/SignUp.js";
 import LoginPage from "views/authentication/LoginPage.js";
-import ProfilePage from "views/authentication/ProfilePage.js";
+import ProfilePage from "views/profile/ProfilePage.js";
 
 class App extends React.Component {
   render() {

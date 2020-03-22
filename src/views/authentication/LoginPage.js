@@ -16,12 +16,14 @@ import {
   Container,
   Col
 } from "reactstrap";
+import { Link } from 'react-router-dom';
+import CustomLink from '../../components/Buttons/CustomLink.js';
 
 // core components
 import SignInNavbar from "components/Navbars/SignInNavbar.js";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
 
-function LoginPage() {
+const LoginPage = () => {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   React.useEffect(() => {
@@ -114,17 +116,14 @@ function LoginPage() {
                       ></Input>
                     </InputGroup>
                   </CardBody>
-                  <CardFooter className="text-center">
-                    <Button
-                      block
+                  <CardFooter className="text-center">   
+                      <CustomLink 
+                      to="/profile-page" 
                       className="btn-round"
                       color="info"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                      size="lg"
-                    >
-                      Get Started
-                    </Button>
+                      size="lg">
+                        Get Started
+                      </CustomLink>
                     <div className="pull-left">
                       <h6>
                         <a

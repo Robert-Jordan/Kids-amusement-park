@@ -26,17 +26,21 @@ const SignUp = () => {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
+  React.useEffect(() => {
+    document.body.classList.add("signup-page");
+    document.body.classList.add("sidebar-collapse");
+    document.documentElement.classList.remove("nav-open");
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    return function cleanup() {
+      document.body.classList.remove("signup-page");
+      document.body.classList.remove("sidebar-collapse");
+    };
+  });
   return (
     <>
       <SignInNavbar />
-      <div
-        // className='section section-signup'
-        // style={{
-        //   backgroundImage: "url(" + require("assets/img/bg11.jpg") + ")",
-        //   backgroundSize: "cover",
-        //   backgroundPosition: "top center",
-        //   minHeight: "700px"
-        // }}
+      <div 
         className="page-header clear-filter" filter-color="blue"
         id='signup-section'
       >
@@ -79,7 +83,8 @@ const SignUp = () => {
                 <CardBody>
                   <InputGroup
                     className={
-                      "no-border" + (firstFocus ? " input-group-focus" : "")
+                      "no-border input-lg" + 
+                      (firstFocus ? " input-group-focus" : "")
                     }
                   >
                     <InputGroupAddon addonType='prepend'>
