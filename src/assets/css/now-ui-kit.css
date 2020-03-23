@@ -2631,7 +2631,8 @@ body {
 
 .main {
   position: relative;
-  background: #FFFFFF; }
+  background: #FFFFFF;
+  margin-bottom: 15px;}
 
 /* Animations */
 .nav-pills .nav-link,

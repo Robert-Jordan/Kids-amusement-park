@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// redux components 
+import { useDispatch , useSelector  } from 'react-redux';
+import * as signUp from './actions';
 // reactstrap components
 import {
   Button,
@@ -14,7 +17,8 @@ import {
   InputGroupText,
   InputGroup,
   Container,
-  Col
+  Col,
+  FormControl
 } from "reactstrap";
 
 // core components
@@ -26,6 +30,12 @@ const SignUp = () => {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
+
+  const isRegistering = useSelector(state => state.registration.isRegistering);
+  const registered = useSelector(state => state.registration.registered);
+  const errorMessage = useSelector(state => state.registration.errorMessage);
+
+  const dispatch = useDispatch();
   React.useEffect(() => {
     document.body.classList.add("signup-page");
     document.body.classList.add("sidebar-collapse");
@@ -37,6 +47,19 @@ const SignUp = () => {
       document.body.classList.remove("sidebar-collapse");
     };
   });
+
+  const handleSubmit = (e) => {
+    const user = {
+      // avatarUrl: imagePreviewUrl,
+      username: e.username,
+      email: e.email,
+      password: e.password,
+    };
+    if (user.username && user.email && user.password && e.acceptedTerms) {
+      dispatch(signUp.register(user));
+    }
+  };
+
   return (
     <>
       <SignInNavbar />
@@ -47,7 +70,9 @@ const SignUp = () => {
         <Container>
         <Col className="ml-auto mr-auto" md="4">
             <Card className='card-signup card-plain'>
-              <Form action='' className='form' method=''>
+              <Form 
+              // action='' method='' 
+              className='form' onSubmit={handleSubmit} >
                 <CardHeader className='text-center'>
                   <CardTitle className='title-up' tag='h3'>
                     Sign Up
@@ -176,9 +201,9 @@ const SignUp = () => {
                 </CardBody>
                 <CardFooter className='text-center'>
                   <Button
+                    type="submit"
                     className='btn-round'
                     color='info'
-                    href='#pablo'
                     onClick={e => e.preventDefault()}
                     size='lg'
                   >
