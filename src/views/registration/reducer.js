@@ -8,15 +8,8 @@ const registrationReducer = (state = initialState, action) => {
       return { ...state, isRegistering: true };
     case userConstants.REGISTER_SUCCESS:
       return { ...state, isRegistering: false, registered: true };
-    case userConstants.REGISTER_COMPLETED:
-      return { ...state, registered: false };
     case userConstants.REGISTER_FAILURE:
       return { ...state, errorMessage: action.errorMessage, isRegistering: false };
-    // case userConstants.REGISTER_CLOSE_ERROR_ALERT:
-    //   return {
-    //     ...state,
-    //     errorMessage: action.errorMessage,
-    //   };
     default:
       return state;
   }

@@ -1,31 +1,34 @@
 import React from "react";
-
+// redux components 
+import { useDispatch , useSelector  } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 // reactstrap components
-import {
-  Button,
-  Card,
-  CardTitle,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Form,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
-  Container,
-  Col
+import { Button, Card, CardTitle, CardHeader, CardBody, CardFooter,
+  InputGroupAddon, InputGroupText, InputGroup, Container, Col, Alert
 } from "reactstrap";
-import { Link } from 'react-router-dom';
-import CustomLink from '../../components/Buttons/CustomLink.js';
-
+// formik + yup
+import {
+  Formik, Field, Form, ErrorMessage,
+} from 'formik';
+import * as Yup from 'yup';
+// fontawesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // core components
 import SignInNavbar from "components/Navbars/SignInNavbar.js";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
+import CustomLink from '../../components/Buttons/CustomLink.js';
+import * as actions from './action';
 
-const LoginPage = () => {
+const LoginPage = props => {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState('');
+  const loggingIn = useSelector(state => state.authentication.loggingIn);
+  const loggedIn = useSelector(state => state.authentication.loggedIn);
+  // const errorMessage = useSelector(state => state.authentication.errorMessage);
+  const dispatch = useDispatch();
+
   React.useEffect(() => {
     document.body.classList.add("login-page");
     document.body.classList.add("sidebar-collapse");
@@ -37,6 +40,27 @@ const LoginPage = () => {
       document.body.classList.remove("sidebar-collapse");
     };
   });
+
+  const schema = Yup.object().shape({
+    username: Yup.string().required('Username is required!'),
+    password: Yup.string().required('Password is required'),
+  });
+
+  const handleSubmit = async (e) => {
+    if (e.username && e.password) {
+      dispatch(actions.login(e.username, e.password))
+      .then(response => {
+        if(response.successfulLogin && response.errorMessage === ''){
+          props.history.push('/index')
+        }
+      })
+      .catch(response => {
+        setErrorMessage(response.errorMessage);
+        console.log(response.errorMessage)
+      });
+    }
+  };
+
   return (
     <>
       <SignInNavbar />
@@ -45,7 +69,16 @@ const LoginPage = () => {
           <Container>
             <Col className="ml-auto mr-auto" md="4">
               <Card className="card-login card-plain">
-                <Form action="" className="form" method="">
+              <Formik
+              initialValues={{
+              username: '',
+              password: '',
+              }}
+              validationSchema={schema}
+              onSubmit={handleSubmit}
+            >
+              {({ errors, touched, handleSubmit }) => (
+                <Form className="form" onSubmit={handleSubmit}>
                   <CardHeader className="tt-center">
                   <CardTitle className='title-up' tag='h3'>
                     Sign In
@@ -79,6 +112,15 @@ const LoginPage = () => {
                   </div>
                   </CardHeader>
                   <CardBody>
+                  {errorMessage && 
+                  <Alert
+                  show={errorMessage}
+                  color="danger"
+                  toggle={() => setErrorMessage('')}
+                  dismissible
+                  >
+                    {errorMessage}
+                  </Alert>}
                     <InputGroup
                       className={
                         "no-border input-lg" +
@@ -90,13 +132,19 @@ const LoginPage = () => {
                           <i className="now-ui-icons users_circle-08"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input
+                      <Field
+                        name="username"
                         placeholder="Username"
                         type="text"
                         onFocus={() => setFirstFocus(true)}
-                        onBlur={() => setFirstFocus(false)}
-                      ></Input>
+                        // onBlur={() => setFirstFocus(false)}
+                        className={`form-control${
+                          errors.username && touched.username ? ' is-invalid' : ''
+                        }`}
+                      ></Field>
+                      <ErrorMessage name="username" component="div" className="invalid-feedback" />
                     </InputGroup>
+                    
                     <InputGroup
                       className={
                         "no-border input-lg" +
@@ -108,27 +156,53 @@ const LoginPage = () => {
                           <i className="now-ui-icons text_caps-small"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input
-                        placeholder="Password"
-                        type="text"
-                        onFocus={() => setLastFocus(true)}
-                        onBlur={() => setLastFocus(false)}
-                      ></Input>
+                      <Field
+                      name="password"
+                      type="password"
+                      placeholder="Password*"
+                      onFocus={() => setLastFocus(true)}
+                      // onBlur={() => setLastFocus(false)}
+                      className={`form-control${
+                      errors.password && touched.password ? ' is-invalid' : ''
+                      }`}
+                      />
+                      <ErrorMessage name="password" component="div" className="invalid-feedback" />
                     </InputGroup>
                   </CardBody>
                   <CardFooter className="text-center">   
-                      <CustomLink 
+                      {/* <CustomLink 
                       to="/profile-page" 
                       className="btn-round"
                       color="info"
                       size="lg">
                         Get Started
-                      </CustomLink>
+                      </CustomLink> */}
+                       <Button
+                        type="submit"
+                        className='btn-round'
+                        color='info'
+                        onClick={handleSubmit}
+                        size='lg'
+                       >
+                        Get Started
+                       </Button>
+                       {loggingIn && (
+                          <center>
+                            <FontAwesomeIcon icon={faSpinner} className="fa fa-spinner fa-spin" />
+                          </center>
+                       )}
+                       <div>
                     <div className="pull-left">
                       <h6>
+                      {/* <CustomLink 
+                     className="sign-in-hyperlink"
+                     to="/registration-page"
+                     onClick={e => e.preventDefault()}>
+                        Create Account
+                      </CustomLink> */}
                         <a
                           className="link"
-                          href="#pablo"
+                          href="/registration-page"
                           onClick={e => e.preventDefault()}
                         >
                           Create Account
@@ -146,8 +220,11 @@ const LoginPage = () => {
                         </a>
                       </h6>
                     </div>
+                    </div>
                   </CardFooter>
                 </Form>
+               )}
+               </Formik>
               </Card>
             </Col>
           </Container>
@@ -158,4 +235,4 @@ const LoginPage = () => {
   );
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);

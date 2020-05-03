@@ -1,5 +1,5 @@
 import React from "react";
-
+import { withRouter } from 'react-router-dom';
 // reactstrap components
 // import {
 // } from "reactstrap";
@@ -13,7 +13,7 @@ import DarkFooter from "components/Footers/DarkFooter.js";
 import Tabs from "./index-sections/Tabs.js";
 import Maps from "./index-sections/Maps.js";
 
-function Index() {
+const Index = () => {
   React.useEffect(() => {
     document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");
@@ -40,7 +40,7 @@ function Index() {
   );
 }
 
-export default Index;
+export default withRouter(Index);
 
 // 1.	Кімната розваг.
 // 2.	Кімната сміху.

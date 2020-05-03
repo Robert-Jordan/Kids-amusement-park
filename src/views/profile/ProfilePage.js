@@ -1,4 +1,6 @@
 import React from "react";
+// router
+import { withRouter } from 'react-router-dom';
 // reactstrap components
 import {
   Button,
@@ -219,4 +221,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default withRouter(ProfilePage);
