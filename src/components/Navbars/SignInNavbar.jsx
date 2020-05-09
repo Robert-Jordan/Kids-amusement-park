@@ -2,12 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 // reactstrap components
 import {
-  Button,
   Collapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
   NavbarBrand,
   Navbar,
   NavItem,
@@ -17,7 +12,7 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-const IndexNavbar = () => {
+const SignInNavbar = () => {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
@@ -50,15 +45,16 @@ const IndexNavbar = () => {
           }}
         />
       ) : null}
-      <Navbar className={"fixed-top " + navbarColor} expand="lg" color="info">
+      <Navbar className={"fixed-top " + navbarColor} color="info" expand="lg">
         <Container>
           <div className="navbar-translate">
             <NavbarBrand
-              href="#"
               target="_blank"
               id="navbar-brand"
             >
-              Children's amusement park
+              <NavLink to="/index" tag={Link}>
+                CHILDREN'S AMUSEMENT PARK
+              </NavLink>
             </NavbarBrand>
             <button
               className="navbar-toggler navbar-toggler"
@@ -81,17 +77,8 @@ const IndexNavbar = () => {
           >
             <Nav navbar>
               <NavItem>
-                <NavLink
-                  href="/login-page"
-                >
-                  <p>Sign in</p>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  href="/registration-page"
-                >
-                  <p>Sign up</p>
+                <NavLink to="/index" tag={Link}>
+                  Back to main page
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -141,4 +128,4 @@ const IndexNavbar = () => {
   );
 }
 
-export default IndexNavbar;
+export default SignInNavbar;

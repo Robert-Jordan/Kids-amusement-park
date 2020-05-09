@@ -12,7 +12,7 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function SignInNavbar() {
+const IndexNavbar = () => {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
@@ -45,15 +45,16 @@ function SignInNavbar() {
           }}
         />
       ) : null}
-      <Navbar className={"fixed-top " + navbarColor} color="info" expand="lg">
+      <Navbar className={"fixed-top " + navbarColor} expand="lg" color="info">
         <Container>
           <div className="navbar-translate">
             <NavbarBrand
-              href="/index"
               target="_blank"
               id="navbar-brand"
             >
-              CHILDREN'S AMUSEMENT PARK
+              <NavLink to="/index" tag={Link}>
+                CHILDREN'S AMUSEMENT PARK
+              </NavLink>
             </NavbarBrand>
             <button
               className="navbar-toggler navbar-toggler"
@@ -76,8 +77,17 @@ function SignInNavbar() {
           >
             <Nav navbar>
               <NavItem>
-                <NavLink to="/index" tag={Link}>
-                  Back to main page
+                <NavLink
+                  href="/login-page"
+                >
+                  <p>Sign in</p>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  href="/registration-page"
+                >
+                  <p>Sign up</p>
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -127,4 +137,4 @@ function SignInNavbar() {
   );
 }
 
-export default SignInNavbar;
+export default IndexNavbar;

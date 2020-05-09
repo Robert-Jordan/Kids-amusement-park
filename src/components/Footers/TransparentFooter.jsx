@@ -4,7 +4,7 @@ import React from "react";
 // reactstrap components
 import { Container } from "reactstrap";
 
-function TransparentFooter() {
+const TransparentFooter = () => {
   return (
     <footer className="footer">
       <Container>

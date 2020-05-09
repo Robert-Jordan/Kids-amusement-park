@@ -20,15 +20,15 @@ const authenticationReducer = (state = initialState, action) => {
       return {
         ...state,
         loggedIn: true,
-        loggingIn: false,
-        userId: action.id,
-        token: action.token,
+          loggingIn: false,
+          userId: action.id,
+          token: action.token,
       };
     case userConstants.LOGIN_FAILURE:
       return {
         ...state,
         loggingIn: false,
-        errorMessage: action.errorMessage,
+          errorMessage: action.errorMessage,
       };
     case userConstants.LOGOUT_REQUEST:
       return {
@@ -39,23 +39,23 @@ const authenticationReducer = (state = initialState, action) => {
       return {
         ...state,
         loggingOut: false,
-        loggedIn: false,
-        userId: '',
-        token: '',
+          loggedIn: false,
+          userId: '',
+          token: '',
       };
       // move to separate reducer
     case userConstants.CHECK_TOKEN_SUCCESS:
       return {
         ...state,
         loggedIn: true,
-        userId: action.id,
-        token: action.token,
+          userId: action.id,
+          token: action.token,
       };
     case userConstants.CHECK_TOKEN_FAILURE:
       return {
         ...state,
         loggedIn: false,
-        token: '',
+          token: '',
       };
     default:
       return state;

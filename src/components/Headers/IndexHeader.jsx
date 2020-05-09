@@ -2,7 +2,7 @@
 import React from "react";
 
 // reactstrap components
-import { Container, NavItem, NavLink } from "reactstrap";
+import { Container, NavLink } from "reactstrap";
 // core components
 
 const IndexHeader = () => {
@@ -38,13 +38,13 @@ const IndexHeader = () => {
             <h3>
               Check if we are in your city on
                 <NavLink
-                  href='#pablo'
-                  onClick={e => {
-                    e.preventDefault();
-                    document.getElementById("map-section").scrollIntoView();
-                  }}
-                >
-                  Map
+                href='#pablo'
+                onClick={e => {
+                  e.preventDefault();
+                  document.getElementById("map-section").scrollIntoView();
+                }}
+              >
+                Map
                 </NavLink>
             </h3>
           </div>

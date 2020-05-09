@@ -1,19 +1,19 @@
 import React from "react";
 import { withRouter } from 'react-router-dom';
-// reactstrap components
-// import {
-// } from "reactstrap";
+import { useSelector } from 'react-redux';
 
 // core components
-import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import IndexHeader from "components/Headers/IndexHeader.js";
-import DarkFooter from "components/Footers/DarkFooter.js";
+import IndexNavbar from "components/Navbars/IndexNavbar";
+import AuthenticatedNavbar from "components/Navbars/AuthenticatedNavbar";
+import IndexHeader from "components/Headers/IndexHeader.jsx";
+import DarkFooter from "components/Footers/DarkFooter.jsx";
 
 // sections for this page
 import Tabs from "./index-sections/Tabs.js";
 import Maps from "./index-sections/Maps.js";
 
 const Index = () => {
+  const loggedIn = useSelector(state => state.authentication.loggedIn);
   React.useEffect(() => {
     document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");
@@ -27,12 +27,12 @@ const Index = () => {
   });
   return (
     <>
-      <IndexNavbar />
+      {loggedIn ? <AuthenticatedNavbar /> : <IndexNavbar />}
       <div className="wrapper">
         <IndexHeader />
         <div className="main">
           <Tabs />
-          <Maps/>
+          <Maps />
         </div>
         <DarkFooter />
       </div>

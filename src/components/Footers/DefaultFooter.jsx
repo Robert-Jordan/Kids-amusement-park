@@ -6,7 +6,7 @@ import { Container } from "reactstrap";
 
 // core components
 
-function DefaultFooter() {
+const DefaultFooter = () => {
   return (
     <>
       <footer className="footer footer-default">

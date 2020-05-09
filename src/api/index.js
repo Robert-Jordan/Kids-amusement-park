@@ -8,6 +8,7 @@ export const checkToken = (token) => {
 };
 
 export const login = (userName, password) => {
+  if(userName === "1" && password === "1"){
   var response = {
     status: 200,
     data: {
@@ -15,12 +16,14 @@ export const login = (userName, password) => {
       id: "12345"
     }
   };
-  // var response = {
-  //   status: 401,
-  //   data: {
-  //     errorMessage: "Error! Username or password is wrong.",
-  //   }
-  // };
+  return response;
+}
+  var response = {
+    status: 401,
+    data: {
+      errorMessage: "Error! Username or password is wrong.",
+    }
+  };
   return response;
 }
 // axios.post(`${BASE_URL}api/users/authenticate`, {
@@ -37,17 +40,22 @@ export const register = user => {
   //   return response;
   // });
 
+  if(user.firstName === '1') {
   var response = {
     status: 200,
     data : {
       errorMessage: ''
     }
-    // status: 400,
-    // data : {
-    //   errorMessage: 'Error! User with such email has been already registered, please use another email.'
-    // }
   };
   return response;
+  }
+  var errRes = {
+    status: 400,
+    data : {
+      errorMessage: 'Error! User with such email has been already registered, please use another email.'
+    }
+  }
+  return errRes;
 }
 
 
