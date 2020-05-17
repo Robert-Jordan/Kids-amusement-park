@@ -1,25 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 // reactstrap components
 import {
-  Button,
-  Collapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
+  Collapse, NavbarBrand, Navbar, NavItem, NavLink, Nav,
+  Container, DropdownToggle, DropdownMenu, DropdownItem,
   UncontrolledDropdown,
-  NavbarBrand,
-  Navbar,
-  NavItem,
-  NavLink,
-  Nav,
-  Container,
-  UncontrolledTooltip
 } from "reactstrap";
+import * as actions from '../../views/authentication/action';
 
-const AuthenticatedNavbar = () => {
+const AuthenticatedNavbar = (props) => {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
+  const dispatch = useDispatch();
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
@@ -41,24 +34,26 @@ const AuthenticatedNavbar = () => {
   });
   return (
     <>
-      {collapseOpen ? (
-        <div
-          id="bodyClick"
-          onClick={() => {
-            document.documentElement.classList.toggle("nav-open");
-            setCollapseOpen(false);
-          }}
-        />
-      ) : null}
+      {
+        collapseOpen ? (
+          <div
+            id="bodyClick"
+            onClick={() => {
+              document.documentElement.classList.toggle("nav-open");
+              setCollapseOpen(false);
+            }}
+          />
+        ) : null}
       <Navbar className={"fixed-top " + navbarColor} expand="lg" color="info">
         <Container>
           <div className="navbar-translate">
             <NavbarBrand
-              href="#"
               target="_blank"
               id="navbar-brand"
             >
-              Children's amusement park
+              <NavLink to="/index" tag={Link}>
+                CHILDREN'S AMUSEMENT PARK
+              </NavLink>
             </NavbarBrand>
             <button
               className="navbar-toggler navbar-toggler"
@@ -80,59 +75,65 @@ const AuthenticatedNavbar = () => {
             navbar
           >
             <Nav navbar>
-              <NavItem>
-                <NavLink
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  caret
+                  color="default"
                   href="#"
+                  nav
+                  onClick={e => e.preventDefault()}
                 >
                   <p>Services</p>
-                </NavLink>
-              </NavItem>
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem header tag="a">
+                    Our services
+                  </DropdownItem>
+                  <DropdownItem
+                    href="#"
+                    onClick={e => e.preventDefault()}
+                  >
+                    Themed rooms
+                  </DropdownItem>
+                  <DropdownItem
+                    href="#"
+                    onClick={e => e.preventDefault()}
+                  >
+                    Rooms of fear
+                  </DropdownItem>
+                  <DropdownItem
+                    href="#"
+                    onClick={e => e.preventDefault()}
+                  >
+                    Laughter room
+                  </DropdownItem>    
+                  <DropdownItem
+                    href="#"
+                    onClick={e => e.preventDefault()}
+                  >
+                    Lasertag
+                  </DropdownItem>                      
+                </DropdownMenu>
+              </UncontrolledDropdown>
               <NavItem>
                 <NavLink
-                  href="/profile-page"
-                >
+                  to="/profile-page"
+                  tag={Link}>
                   <p>Profile</p>
                 </NavLink>
               </NavItem>
-              {/* <NavItem>
-                <NavLink
-                  href="https://twitter.com"
-                  target="_blank"
-                  id="twitter-tooltip"
-                >
-                  <i className="fab fa-twitter"></i>
-                  <p className="d-lg-none d-xl-none">Twitter</p>
-                </NavLink>
-                <UncontrolledTooltip target="#twitter-tooltip">
-                  Follow us on Twitter
-                </UncontrolledTooltip>
-              </NavItem>
               <NavItem>
                 <NavLink
-                  href="https://www.facebook.com"
-                  target="_blank"
-                  id="facebook-tooltip"
-                >
-                  <i className="fab fa-facebook-square"></i>
-                  <p className="d-lg-none d-xl-none">Facebook</p>
+                  tag={Link}
+                  onClick={()=>{
+                    if(props.loggedIn){
+                      dispatch(actions.logout())
+                    }
+                  }
+                  }>
+                  <p>Logout</p>
                 </NavLink>
-                <UncontrolledTooltip target="#facebook-tooltip">
-                  Like us on Facebook
-                </UncontrolledTooltip>
               </NavItem>
-              <NavItem>
-                <NavLink
-                  href="https://www.instagram.com"
-                  target="_blank"
-                  id="instagram-tooltip"
-                >
-                  <i className="fab fa-instagram"></i>
-                  <p className="d-lg-none d-xl-none">Instagram</p>
-                </NavLink>
-                <UncontrolledTooltip target="#instagram-tooltip">
-                  Follow us on Instagram
-                </UncontrolledTooltip>
-              </NavItem> */}
             </Nav>
           </Collapse>
         </Container>

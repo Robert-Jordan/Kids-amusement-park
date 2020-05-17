@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // redux components 
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from './actions';
@@ -8,7 +9,7 @@ import { NavLink } from "react-router-dom";
 // reactstrap components
 import {
   Button, Card, CardHeader, CardBody, CardFooter, CardTitle,
-  Row, Label, InputGroupAddon, InputGroupText, InputGroup, Container,
+  Label, InputGroupAddon, InputGroupText, InputGroup, Container,
   Col, Alert, FormGroup,
 } from "reactstrap";
 // formik+yup
@@ -33,6 +34,18 @@ const SignUp = props => {
   const [errorMessage, setErrorMessage] = React.useState('');
   const isRegistering = useSelector(state => state.registration.isRegistering);
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    document.body.classList.add("signup-page");
+    document.body.classList.add("sidebar-collapse");
+    document.documentElement.classList.remove("nav-open");
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    return function cleanup() {
+      document.body.classList.remove("signup-page");
+      document.body.classList.remove("sidebar-collapse");
+    };
+  });
 
   const schema = Yup.object().shape({
     firstName: Yup.string()
@@ -59,19 +72,7 @@ const SignUp = props => {
       .required('Must Accept Terms and Conditions'),
   });
 
-  React.useEffect(() => {
-    document.body.classList.add("signup-page");
-    document.body.classList.add("sidebar-collapse");
-    document.documentElement.classList.remove("nav-open");
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-    return function cleanup() {
-      document.body.classList.remove("signup-page");
-      document.body.classList.remove("sidebar-collapse");
-    };
-  });
-
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     const user = {
       firstName: e.firstName,
       lastName: e.lastName,
@@ -136,7 +137,7 @@ const SignUp = props => {
                     <CardHeader className='text-center'>
                       <CardTitle className='title-up' tag='h3'>
                         Sign Up
-                  </CardTitle>
+                      </CardTitle>
                       <div className='social-line'>
                         <Button
                           className='btn-neutral btn-icon btn-round'
@@ -307,7 +308,7 @@ const SignUp = props => {
                         size='lg'
                       >
                         Get Started
-                  </Button>
+                      </Button>
                       {isRegistering && (
                         <center>
                           <FontAwesomeIcon icon={faSpinner} className="fa fa-spinner fa-spin" />
@@ -319,18 +320,16 @@ const SignUp = props => {
               </Formik>
             </Card>
           </Col>
-          {/* <div className='col text-center'>
-            <Button
-              className='btn-round btn-white'
-              color='default'
-              to='/login-page'
-              outline
-              size='lg'
-              tag={Link}
-            >
-              View Login Page
-            </Button>
-          </div> */}
+          <div className='col text-center'>
+            <h6>
+              Already have an account?{' '}
+              <NavLink
+                to="/login-page"
+                tag={Link}>
+                Sign in
+              </NavLink>
+            </h6>
+          </div>
         </Container>
         <TransparentFooter />
       </div>

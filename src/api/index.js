@@ -59,21 +59,43 @@ export const register = user => {
 }
 
 
-export const update = (id, avatarUrl, oldPassword, newPassword) => {
-  const token = localStorage.getItem('token');
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  return axios
-    .put(`${BASE_URL}api/users/${id}/update`, {
-      avatarUrl,
-      password: oldPassword,
-      newPassword,
-      id,
-    })
-    .catch(error => error);
+export const update = user => {
+  // const token = localStorage.getItem('token');
+  // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  // return axios
+  //   .put(`${BASE_URL}api/users/${id}/update`, {
+  //     avatarUrl,
+  //     password: oldPassword,
+  //     newPassword,
+  //     id,
+  //   })
+  //   .catch(error => error);
+  if(user.email === '1') {
+    var response = {
+      status: 200,
+    };
+    return response;
+    }
+    var errRes = {
+      status: 400,
+      data : {
+        errorMessage: 'Error! You have entered wrong current password!'
+      }
+    }
+    return errRes;
 };
 
-export const getUserCredentials = (userId) => {
-  const token = localStorage.getItem('token');
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  return axios.get(`${BASE_URL}api/users/getUserCredentials`, userId).catch(error => error);
+export const getUserCredentials = userId => {
+  // const token = localStorage.getItem('token');
+  // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  // return axios.get(`${BASE_URL}api/users/getUserCredentials`, userId).catch(error => error);
+    var response = {
+      status: 200,
+      data : {
+        firstName: 'FName',
+        lastName: "LName",
+        email: 'email@test.com'
+      }
+    };
+    return response;
 };

@@ -1,11 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // redux components 
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 // reactstrap components
 import {
   Button, Card, CardTitle, CardHeader, CardBody, CardFooter,
-  InputGroupAddon, InputGroupText, InputGroup, Container, Col, Alert
+  InputGroupAddon, InputGroupText, InputGroup, Container, Col, Alert,
+  NavLink,
 } from "reactstrap";
 // formik + yup
 import {
@@ -167,7 +169,7 @@ const LoginPage = props => {
                           <Field
                             name="password"
                             type="password"
-                            placeholder="Password*"
+                            placeholder="Password"
                             onFocus={() => setLastFocus(true)}
                             onBlur={() => setLastFocus(false)}
                             className={`form-control${
@@ -178,13 +180,6 @@ const LoginPage = props => {
                         </InputGroup>
                       </CardBody>
                       <CardFooter className="text-center">
-                        {/* <CustomLink 
-                      to="/profile-page" 
-                      className="btn-round"
-                      color="info"
-                      size="lg">
-                        Get Started
-                      </CustomLink> */}
                         <Button
                           type="submit"
                           className='btn-round'
@@ -200,32 +195,24 @@ const LoginPage = props => {
                           </center>
                         )}
                         <div>
-                          <div className="pull-left">
+                        <div className="pull-left">
                             <h6>
-                              {/* <CustomLink 
-                     className="sign-in-hyperlink"
-                     to="/registration-page"
-                     onClick={e => e.preventDefault()}>
-                        Create Account
-                      </CustomLink> */}
-                              <a
-                                className="link"
-                                href="/registration-page"
-                                onClick={e => e.preventDefault()}
-                              >
-                                Create Account
-                        </a>
+                              <NavLink
+                                to="/registration-page"
+                                tag={Link}
+                                className="link">
+                                Create an Account
+                              </NavLink>
                             </h6>
                           </div>
                           <div className="pull-right">
                             <h6>
-                              <a
-                                className="link"
-                                href="#pablo"
-                                onClick={e => e.preventDefault()}
-                              >
-                                Need Help?
-                        </a>
+                              <NavLink
+                                to="#"
+                                tag={Link}
+                                className="link">
+                                Need help?
+                              </NavLink>
                             </h6>
                           </div>
                         </div>

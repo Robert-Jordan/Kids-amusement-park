@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 // core components
 import IndexNavbar from "components/Navbars/IndexNavbar";
@@ -12,8 +11,7 @@ import DarkFooter from "components/Footers/DarkFooter.jsx";
 import Tabs from "./index-sections/Tabs.js";
 import Maps from "./index-sections/Maps.js";
 
-const Index = () => {
-  const loggedIn = useSelector(state => state.authentication.loggedIn);
+const Index = (props) => {
   React.useEffect(() => {
     document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");
@@ -27,7 +25,8 @@ const Index = () => {
   });
   return (
     <>
-      {loggedIn ? <AuthenticatedNavbar /> : <IndexNavbar />}
+      {/* REMOVE ! */}
+      {props.loggedIn ? <AuthenticatedNavbar loggedIn={props.loggedIn} /> : <IndexNavbar />}
       <div className="wrapper">
         <IndexHeader />
         <div className="main">

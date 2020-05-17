@@ -135,6 +135,15 @@ function BasicElements() {
                   ></Input>
                 </FormGroup>
               </Col>
+
+
+
+
+
+
+
+
+
               <Col lg="3" sm="6">
                 <FormGroup className="has-success">
                   <Input
@@ -144,6 +153,8 @@ function BasicElements() {
                   ></Input>
                 </FormGroup>
               </Col>
+
+              
               <Col lg="3" sm="6">
                 <FormGroup className="has-danger">
                   <Input
@@ -153,6 +164,19 @@ function BasicElements() {
                   ></Input>
                 </FormGroup>
               </Col>
+
+
+
+
+
+
+
+
+
+
+
+
+
               <Col lg="3" sm="6">
                 <InputGroup className={leftFocus ? "input-group-focus" : ""}>
                   <InputGroupAddon addonType="prepend">
