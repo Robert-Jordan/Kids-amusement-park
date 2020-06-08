@@ -20,7 +20,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // core components
 import SignInNavbar from "components/Navbars/SignInNavbar";
 import TransparentFooter from "components/Footers/TransparentFooter.jsx";
-import * as actions from './action';
+import * as actions from './actions';
 
 const LoginPage = props => {
   const [firstFocus, setFirstFocus] = React.useState(false);

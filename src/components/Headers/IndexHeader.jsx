@@ -1,9 +1,6 @@
-/*eslint-disable*/
 import React from "react";
-
 // reactstrap components
 import { Container, NavLink } from "reactstrap";
-// core components
 
 const IndexHeader = () => {
   let pageHeader = React.createRef();
@@ -36,7 +33,7 @@ const IndexHeader = () => {
           <div className='content-center brand'>
             <h1 className='h1-seo'>entertainment for everyone</h1>
             <h3>
-              Check if we are in your city on
+              Check if we are in your city at the
                 <NavLink
                 href='#pablo'
                 onClick={e => {

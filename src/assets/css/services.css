@@ -1,0 +1,164 @@
+    .box {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .material-icons {
+        font-size: 2.4em;
+        cursor: pointer;
+    }
+
+    .category-card {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    .category-card .card-image img {
+        width: 500px;
+        height: 300px;
+    }
+
+    .category-card .card-image .card-title {
+        color: black;
+        font-size: 25px;
+        font-weight: 600
+    }
+
+    .cart {
+        margin-top: 40px;
+    }
+
+    .collection .collection-item {
+        display: flex;
+    }
+
+    .collection-item.avatar .title {
+        font-size: 20px;
+        font-weight: 500;
+        color: #ee6e73;
+        display: block;
+        margin-bottom: 20px;
+
+    }
+
+    .category-page img {
+        width: 150px;
+        margin-right: 25px;
+    }
+
+    .item-desc {
+        align-self: center;
+    }
+
+    .category-card i {
+        font-size: 30px;
+        color: #f96332;
+    }
+
+    .category-card .nav-link {
+        display: inline-block;
+        padding: 0 .5em;
+        line-height: 1.22;
+        vertical-align: bottom;
+    }
+
+    .card-content-bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-content-bottom .price {
+        display: inline-block;
+        font-size: 1.5em;
+        text-align: right;
+        line-height: 1.22;
+        vertical-align: bottom;
+    }
+
+    .field.is-grouped {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+      }
+
+      .field.is-grouped > .control {
+        flex-shrink: 0;
+      }
+      
+      .field.is-grouped > .control:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 0.75rem;
+      }
+      
+      .field.is-grouped > .control.is-expanded {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+      
+      .field.is-grouped.is-grouped-centered {
+        justify-content: center;
+      }
+      
+      .field.is-grouped.is-grouped-right {
+        justify-content: flex-end;
+      }
+      
+      .field.is-grouped.is-grouped-multiline {
+        flex-wrap: wrap;
+      }
+      
+      .field.is-grouped.is-grouped-multiline > .control:last-child, .field.is-grouped.is-grouped-multiline > .control:not(:last-child) {
+        margin-bottom: 0.75rem;
+      }
+      
+      .field.is-grouped.is-grouped-multiline:last-child {
+        margin-bottom: -0.75rem;
+      }
+      
+      .field.is-grouped.is-grouped-multiline:not(:last-child) {
+        margin-bottom: 0;
+      }
+
+    .field-body .field .field {
+        margin-bottom: 0;
+      }
+
+      .control {
+        box-sizing: border-box;
+        clear: both;
+        font-size: 1rem;
+        position: relative;
+        text-align: left;
+      }
+
+      .select select:not([multiple]) {
+        padding-right: 2.5em;
+    }
+
+    .select select {
+        cursor: pointer;
+        display: block;
+        font-size: 1em;
+        max-width: 100%;
+        outline: 0;
+    }
+
+    .input, .select select, .textarea {
+        background-color: #fff;
+        border-color: #dbdbdb;
+        border-radius: 4px;
+        color: #363636;
+    }
+
+    .select select {
+        -moz-appearance: none;
+        display: inline-flex;
+        font-size: 1rem;
+        padding-left: calc(.75em - 1px);
+        padding-right: calc(.75em - 1px);
+        padding-top: calc(.32em - 1px);
+        padding-bottom: calc(.32em - 1px);
+        position: relative;
+        vertical-align: top;
+    }

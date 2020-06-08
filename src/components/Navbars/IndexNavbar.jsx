@@ -11,6 +11,8 @@ import {
   Container,
   UncontrolledTooltip
 } from "reactstrap";
+// core components
+import ServicesDropdown from '../Dropdowns/ServicesDropdown';
 
 const IndexNavbar = () => {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
@@ -90,6 +92,7 @@ const IndexNavbar = () => {
                   <p>Sign up</p>
                 </NavLink>
               </NavItem>
+              <ServicesDropdown/>
               <NavItem>
                 <NavLink
                   href="https://twitter.com"

@@ -6,6 +6,7 @@ import IndexNavbar from "components/Navbars/IndexNavbar";
 import AuthenticatedNavbar from "components/Navbars/AuthenticatedNavbar";
 import IndexHeader from "components/Headers/IndexHeader.jsx";
 import DarkFooter from "components/Footers/DarkFooter.jsx";
+import Carousel from 'views/index-sections/Carousel';
 
 // sections for this page
 import Tabs from "./index-sections/Tabs.js";
@@ -30,8 +31,9 @@ const Index = (props) => {
       <div className="wrapper">
         <IndexHeader />
         <div className="main">
-          <Tabs />
-          <Maps />
+          <Carousel/>
+          <Tabs/>
+          <Maps/>
         </div>
         <DarkFooter />
       </div>

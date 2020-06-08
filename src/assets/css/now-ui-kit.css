@@ -3948,6 +3948,9 @@ img {
       margin-bottom: 0;
       box-shadow: 0px 5px 50px 0px rgba(0, 0, 0, 0.2); }
 
+.category-page .page-header {
+  height: 50vh; }
+
 .index-page .page-header {
   height: 125vh; }
   .index-page .page-header .container > .content-center {
