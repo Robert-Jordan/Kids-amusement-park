@@ -5,22 +5,27 @@ export const sortByPrice = payload => ({
     payload
 });
 
-export const SORT_BY_CITY = "SORT_BY_CITY";
-export const sortByCity = payload => ({
-    type: SORT_BY_CITY,
-    payload
-});
-
-export const SORT_BY_CATEGORY = "SORT_BY_CATEGORY";
-export const sortByCategory = payload => ({
-    type: SORT_BY_CATEGORY,
-    payload
-});
-
 export const LOAD_DATA = "LOAD_DATA";
 export const loadData = (payload) => ({
     type: LOAD_DATA,
     payload
+});
+
+export const FILTER_BY_CITY = "FILTER_BY_CITY";
+export const filterByCity = (payload) => ({
+    type: FILTER_BY_CITY,
+    payload
+});
+
+export const FILTER_BY_CATEGORY = "FILTER_BY_CATEGORY";
+export const filterByCategory = (payload) => ({
+    type: FILTER_BY_CATEGORY,
+    payload
+});
+
+export const CLEAR_FILTERS = "CLEAR_FILTERS";
+export const clearFilters = () => ({
+    type: CLEAR_FILTERS
 });
 
 export const GO_TO_CHECKOUT = 'GO_TO_CHECKOUT';

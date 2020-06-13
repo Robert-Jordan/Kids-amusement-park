@@ -6,7 +6,7 @@ import Item5 from 'assets/img/RoomOfFear1.jpg'
 import Item6 from 'assets/img/RoomOfFear2.jpg'
 import Item7 from 'assets/img/LaughterRoom.jpg'
 import Item8 from 'assets/img/LaserTag.jpg'
-import serviceCategories from '../views/category/servicesCategories';
+import { serviceCategories, serviceCities } from '../views/category/servicesCategories';
 
 export const services = [{
             id: 1,
@@ -14,6 +14,7 @@ export const services = [{
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",
             category: [serviceCategories[1], serviceCategories[2]],
             price: 110,
+            city: serviceCities[0],
             img: Item1
         },
         {
@@ -22,6 +23,7 @@ export const services = [{
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",
             category: [serviceCategories[1], serviceCategories[2]],
             price: 80,
+            city: serviceCities[0],
             img: Item2
         },
         {
@@ -30,6 +32,7 @@ export const services = [{
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",
             category: [serviceCategories[1], serviceCategories[2]],
             price: 120,
+            city: serviceCities[0],
             img: Item3
         },
         {
@@ -38,6 +41,7 @@ export const services = [{
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",
             category: [serviceCategories[1], serviceCategories[2]],
             price: 260,
+            city: serviceCities[0],
             img: Item4
         },
 
@@ -47,6 +51,7 @@ export const services = [{
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",
             category: [serviceCategories[4]],
             price: 110,
+            city: serviceCities[0],
             img: Item5
         },
         {
@@ -55,6 +60,7 @@ export const services = [{
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",
             category: [serviceCategories[4]],
             price: 80,
+            city: serviceCities[1],
             img: Item6
         },
         {
@@ -63,6 +69,7 @@ export const services = [{
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",
             category: [serviceCategories[3]],
             price: 120,
+            city: serviceCities[0],
             img: Item7
         },
         {
@@ -71,6 +78,7 @@ export const services = [{
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",
             category: [serviceCategories[5]],
             price: 260,
+            city: serviceCities[1],
             img: Item8
         },
     ];

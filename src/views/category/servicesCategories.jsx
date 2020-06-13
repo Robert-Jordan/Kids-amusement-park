@@ -1,9 +1,13 @@
-const serviceCategories = [
-    { name: "Game rooms" },
+export const serviceCategories = [
+    { name: "Gam rooms" },
     { name: "Birthdays" },
     { name: "Themed rooms" },
     { name: "Laughter rooms" },
     { name: "Rooms of fear" },
     { name: "Large Halls" },
 ];
-export default serviceCategories;
+
+export const serviceCities = [
+    { name: "Kharkiv" },
+    { name: "Kyiv" },
+];

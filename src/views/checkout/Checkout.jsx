@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CheckoutNavbar from '../../components/Navbars/CheckoutNavbar.jsx';
 import DarkFooter from '../../components/Footers/DarkFooter.jsx';
-
+import Item8 from 'assets/img/LaserTag.jpg'
 class Checkout extends Component {
 
     render(){
@@ -29,6 +29,7 @@ class Checkout extends Component {
                     <br/>
                     <br/>
                     <br/>
+                    <img src={Item8}></img>
                 <DarkFooter/>
             </>
         )
