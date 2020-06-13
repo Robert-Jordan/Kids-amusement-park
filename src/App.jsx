@@ -16,6 +16,8 @@ import Example from "views/Example";
 import PrivateRoute from '../src/components/Routes/PrivateRoute';
 import CategoryPage from '../src/views/category/CategoryPage';
 import Checkout from '../src/views/checkout/Checkout.jsx';
+import CardPayment from '../src/views/checkout/CardPayment/CardPayment.jsx';
+
 
 const App = () => {
   const loggedIn = useSelector(state => state.authentication.loggedIn);
@@ -53,6 +55,10 @@ const App = () => {
         <Route
           path='/checkout'
           render={props => <Checkout {...props} />}
+        />
+        <Route
+          path='/card-payment'
+          render={props => <CardPayment {...props} />}
         />
         <Redirect to='/index' />
         <Redirect from='/' to='/index' />
