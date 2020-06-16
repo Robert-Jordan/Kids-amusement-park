@@ -39,7 +39,7 @@
     }
     &__date {
         font-size: 26px;
-        padding-left: 20%;
+        padding-left: 35%;
     }
     &__city {
         font-size: 26px;
@@ -55,21 +55,25 @@
     border-bottom: 5px dotted #40444B;
     padding: 15px;
     margin: 15px;
+    display: flex;
+    justify-content: space-around;
 
     &__title {
-        font-size: 36px;
+        font-size: 30px;
         color: #347694;
         font-weight: 600;
     }
 
     &__name {
-
+        &-block {
+            max-width:450px
+        }
     }
     &__time {
-        padding-left: 20%;
+        // padding-left: 60%;
 
         &-value {
-            padding-left: 32%;
+            // padding-left: 32%;
             color: black;
             font-weight: 300;
         }
@@ -77,17 +81,43 @@
 
 }
 
-
 .room-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-around;
 
+    &__input {
+        display: flex;
+        flex-direction: column;
+        
+        &-inner {
+            display: flex;
+            margin: 5px 0;
+
+            & button {
+                display: block;
+                background: none;
+                border: none;
+                outline: none;
+                color: black;
+                font-size: 24px;
+            }
+        }
+    }
+
     &__inp {
+        display: block;
         border: 2px solid #40444B;
         border-radius: 14px;
         height: 40px;
-        margin-bottom: 10px;
+        max-width: 50px;
+        max-height: 30px;
+        text-align: center;
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+          }
     }
 
     &__price {
@@ -101,15 +131,15 @@
 
 
 .receipt-block {
-    padding: 50px 10px;
+    padding: 25px 10px;
     &__price {
         color: #E92E92;
         font-weight: bold;
-        padding-left: 280px;
+        padding-left: 490px;
     }
 
     &__text {
-
+        padding-left: 40px;
     }
 }
 
@@ -123,8 +153,8 @@
     color: whitesmoke;
     background-color:  #E92E92;
     position: fixed;
-    right: 1%;
-    top: 10%;
+    right: 0%;
+    top: 7.4%;
     z-index: 9999;
 
     &__item {

@@ -30,12 +30,16 @@ const App = () => {
       <Switch>
         <Route path='/ex' render={props => <Example {...props} />} />
         <Route path='/index' render={props => <Index {...props} loggedIn={loggedIn} />} />
-        <PrivateRoute
+        {/* <PrivateRoute
           path='/profile-page'
           loggedIn={loggedIn}// REMOVE !
           firstName={firstName}
           lastName={lastName}
           email={email}
+          component={ProfilePage}
+        /> */}
+        <Route
+          path='/profile-page'
           component={ProfilePage}
         />
         <Route
@@ -53,12 +57,12 @@ const App = () => {
           />}
         />
         <Route
-          path='/checkout'
-          render={props => <Checkout {...props} />}
+          path='/checkout/:serviceName/:serviceId'
+          render={props => <Checkout {...props} loggedIn={loggedIn} />}
         />
         <Route
           path='/card-payment'
-          render={props => <CardPayment {...props} />}
+          render={props => <CardPayment {...props} loggedIn={loggedIn} />}
         />
         <Redirect to='/index' />
         <Redirect from='/' to='/index' />

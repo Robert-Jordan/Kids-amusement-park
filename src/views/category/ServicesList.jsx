@@ -1,9 +1,8 @@
 import React from "react";
 import { NavLink } from "reactstrap";
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 const ServicesList = (props) => {
-
     return props.services.map(item => {
         return (
             <div className="category-card" key={item.id}>
@@ -18,9 +17,11 @@ const ServicesList = (props) => {
                 <div className="card-content">
                     <p>{item.desc}</p>
                     <p className="card-content-bottom">
-                        <b className="price">Price: {item.price}$</b>
+                        <b className="price">Price: {item.price.minimalPrice}&#8372;</b>
                         <b>
-                            <NavLink href="/checkout">
+                            <NavLink
+                            disabled={!props.loggedIn}
+                            to={`/checkout/${item.title}/${item.id}`}tag={Link}>
                                 <i className="now-ui-icons shopping_cart-simple"></i>
                             </NavLink>
                         </b>

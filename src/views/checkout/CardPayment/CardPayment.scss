@@ -2,28 +2,21 @@
 //      font-family: 'Anonymous Pro';
 //      src: url('AnonymousPro-Regular.ttf') format('truetype');
 //    }
-body {
-  font-size: 10px;
-  // min-width: 700px;
-  // margin: 0;
-  font-size: 30px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-smoothing: antialiased;
-
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 .section-cardPayment {
-  padding-left: 250px;
-  padding-right: 250px;
+  padding: 150px 250px;
+  font-size: 10px;
+  font-size: 30px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-smoothing: antialiased;
 }
 
 #cards {
   width: 19.5em;
   height: 10em;
   position: relative;
-  margin: 0;
+  margin: 0 auto;
 }
 
 #front,
@@ -95,6 +88,12 @@ body {
   font-family: 'Anonymous Pro', monospace;
   font-size: 0.9em;
   text-indent: 0.1em;
+}
+
+.field::-webkit-inner-spin-button,
+.field::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .expired {
@@ -171,4 +170,11 @@ ul {
 #instance {
   font-size: 0.5em;
   line-height: 1.5em;
+}
+
+.payment-block__title {
+  color: rgb(52, 118, 148);
+  font-size: 36px;
+  text-align: center;
+  font-weight: 600;
 }

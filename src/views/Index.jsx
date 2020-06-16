@@ -1,6 +1,7 @@
 import React from "react";
-import { withRouter } from 'react-router-dom';
-
+import { Link, withRouter } from 'react-router-dom';
+import { Alert, Container } from "reactstrap";
+import { useDispatch, useSelector } from 'react-redux';
 // core components
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import AuthenticatedNavbar from "components/Navbars/AuthenticatedNavbar";
@@ -24,14 +25,15 @@ const Index = (props) => {
       document.body.classList.remove("sidebar-collapse");
     };
   });
+
   return (
     <>
-      {/* REMOVE ! */}
       {props.loggedIn ? <AuthenticatedNavbar loggedIn={props.loggedIn} /> : <IndexNavbar />}
       <div className="wrapper">
         <IndexHeader />
+      
         <div className="main">
-          <Carousel/>
+          {/* <Carousel/> */}
           <Tabs/>
           <Maps/>
         </div>
@@ -42,15 +44,3 @@ const Index = (props) => {
 }
 
 export default withRouter(Index);
-
-// 1.	Кімната розваг.
-// 2.	Кімната сміху.
-// 3.	Кімната страху.
-// 4.	Тематичні кімнати
-// 5.	Ролердром.
-// 6.	Проведення конкурсів та днів народжень.
-// 7.	Замовлення святкового столу.
-
-
-// Мапа язык - рус, укр, англ
-

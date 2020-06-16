@@ -14,21 +14,28 @@ import {
 // core components
 import ServicesDropdown from '../Dropdowns/ServicesDropdown';
 
-const IndexNavbar = () => {
-  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
+const IndexNavbar = props => {
+  let color = props.transparent !== undefined && !props.transparent
+    ? "" : "navbar-transparent";
+  const [navbarColor, setNavbarColor] = React.useState(color);
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
     const updateNavbarColor = () => {
-      if (
-        document.documentElement.scrollTop > 399 ||
-        document.body.scrollTop > 399
-      ) {
-        setNavbarColor("");
-      } else if (
-        document.documentElement.scrollTop < 400 ||
-        document.body.scrollTop < 400
-      ) {
-        setNavbarColor("navbar-transparent");
+      if (props.transparent !== undefined && !props.transparent) {
+
+      }
+      else {
+        if (
+          document.documentElement.scrollTop > 399 ||
+          document.body.scrollTop > 399
+        ) {
+          setNavbarColor("");
+        } else if (
+          document.documentElement.scrollTop < 400 ||
+          document.body.scrollTop < 400
+        ) {
+          setNavbarColor("navbar-transparent");
+        }
       }
     };
     window.addEventListener("scroll", updateNavbarColor);
@@ -92,7 +99,13 @@ const IndexNavbar = () => {
                   <p>Sign up</p>
                 </NavLink>
               </NavItem>
-              <ServicesDropdown/>
+              <NavItem>
+                <NavLink
+                  to="/category-page"
+                  tag={Link}>
+                  <p>Services</p>
+                </NavLink>
+              </NavItem>
               <NavItem>
                 <NavLink
                   href="https://twitter.com"

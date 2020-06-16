@@ -37,29 +37,16 @@ const CategoryPage = props => {
         <>
             {props.loggedIn
                 ? <AuthenticatedNavbar loggedIn={props.loggedIn} />
-                : <IndexNavbar />}
+                : <IndexNavbar transparent={false}/>}
             <div className="wrapper category-page">
-                <CategoryHeader />
+                {/* <CategoryHeader /> */}
                 <div className="main">
                     <div className="container">
                         <h1 className="h1-seo">Our services</h1>
                         <CategoriesFiltering />
                         <div className="box">
-                         <ServicesList services={servicesList} />
+                         <ServicesList services={servicesList} loggedIn={props.loggedIn}/>
                         </div>
-                        {/* <ul className="pagination-list">
-                            {
-                                [...Array(props.filteredPages)].map((value, index) => (
-                                    <button
-                                        className={`button pagination-link ${this.props.state.currentPage === index + 1 ? "is-current" : ""}`}
-                                        aria-label="Page 1"
-                                        onClick={() => this.goToPage(index + 1)}
-                                        aria-current="page">
-                                        {index + 1}
-                                    </button>
-                                ))
-                            }
-                        </ul> */}
                     </div>
                 </div>
                 <DarkFooter />

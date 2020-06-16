@@ -44,6 +44,11 @@ const CheckoutNavbar = (props) => {
             navbar
           >
             <Nav navbar>
+            {/* <NavItem>
+                <NavLink to={props.backLink} tag={Link}>
+                  {props.backText}
+                </NavLink>
+              </NavItem> */}
               <ServicesDropdown/>
               <NavItem>
                 <NavLink

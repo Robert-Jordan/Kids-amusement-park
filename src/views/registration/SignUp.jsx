@@ -292,8 +292,8 @@ const SignUp = props => {
                               }`} />
                           <span className="form-check-sign">
                             {' '}
-                      I accept the
-                      {' '}
+                              I accept the
+                            {' '}
                             <NavLink href="#">Terms &amp; Conditions</NavLink></span>
                         </Label>
                         <ErrorMessage name="acceptedTerms" component="div" className="invalid-feedback" />

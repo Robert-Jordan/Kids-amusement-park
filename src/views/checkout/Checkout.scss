@@ -1,6 +1,6 @@
 // // VARIABLES
 
-$base-color: #007bff;
+$base-color: black;
 $font-size-title: 40px;
 $base-font-family: 'Nucleo Outline';
 $base-font-weight-title: 600;
@@ -10,10 +10,19 @@ $base-font-weight-text: 300;
 
 // CSS
 
+.nav-link {
+    color: white;
+}
+
 .section-checkout {
     padding-left: 250px;
     padding-right: 250px;
+    padding-bottom: 50px;
 }
+
+// .section {
+//     padding: 30px 150px;
+// }
 
 .checkout-block {
     display: flex;
@@ -44,6 +53,7 @@ $base-font-weight-text: 300;
             font-size: $font-size-title;
             font-weight: $base-font-weight-title;
         }
+
         &__title2 {
             font-family: $base-font-family;
             padding-top: 20px;
@@ -53,10 +63,11 @@ $base-font-weight-text: 300;
             font-weight: $base-font-weight-text;
         }
     }
+
     &__img {
-        background-image: url('../../assets/img/kyiv_beyblade.jpg');
-        width: 1500px;
-        height: 1500px;
+        max-width: 1500px;
+        max-height: 1500px;
+        margin: 0 auto;
     }
 }
 
@@ -69,7 +80,7 @@ $base-font-weight-text: 300;
     align-items: center;
 
     &__title {
-        color: rgb(52, 118, 148);
+        // color: rgb(52, 118, 148);
         font-weight: 600;
         padding-top: 40px;
         padding-bottom: 40px;
@@ -77,11 +88,32 @@ $base-font-weight-text: 300;
 
     &__btn {
         width: 300px;
-        outline: none!important;
+        border: 2px solid rgb(122, 134, 141);
+        outline: none !important;
         color: black;
         margin: 0;
         border-radius: 40px;
         background-color: #fff;
+    }
+
+    &__btn .form-control {
+        border: none;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        color: grey;
+    }
+
+    b,
+    p {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    b {
+        font-size: 24px;
+        font-weight: bold;
     }
 
 }
@@ -91,13 +123,13 @@ $base-font-weight-text: 300;
 
 
     &:hover {
-        background-color: rgba(37, 111, 124, 0.6)!important;
+        background-color: rgba(37, 111, 124, 0.6) !important;
         color: white;
     }
 }
 
 .btn__text {
-    font-size: 24px;
+    font-size: 20px;
     color: grey;
     font-weight: 600;
     margin: 0;
@@ -105,7 +137,7 @@ $base-font-weight-text: 300;
 
 
 .date-button-block {
-    padding: 100px;
+    padding: 50px 220px;
     display: flex;
     justify-content: space-around;
 }
@@ -114,7 +146,7 @@ $base-font-weight-text: 300;
 // GUESTS
 
 .guests {
-
+padding-top: 0px;
     &-block {
         display: flex;
         justify-content: space-around;
@@ -138,6 +170,7 @@ $base-font-weight-text: 300;
             height: 140px;
         }
     }
+
     &__title {
         color: rgb(52, 118, 148);
         font-size: 36px;
@@ -150,7 +183,7 @@ $base-font-weight-text: 300;
         font-size: 24px;
         padding: 15px 55px;
         border-radius: 20px;
-        outline: 0!important;
+        outline: 0 !important;
         background: rgba(37, 111, 124, 0.6);
         color: white;
         border: 2px solid white;
@@ -166,9 +199,8 @@ $base-font-weight-text: 300;
         padding: 30px 40px;
         border-radius: 25px;
         margin: 0 15px;
-        outline: 0!important;
+        outline: 0 !important;
         background: rgba(37, 111, 124, 0.6);
-        border: 2px solid white;
         color: #fff;
         font-size: 24px;
 
@@ -188,12 +220,13 @@ $base-font-weight-text: 300;
     display: flex;
     justify-content: space-evenly;
 }
+
 .menu {
     padding: 150px;
-    border: 1px solid saddlebrown;
     display: flex;
     flex-direction: column;
     align-items: center;
+
     &__title {
         font-size: 48px;
         font-weight: 600;
@@ -204,14 +237,22 @@ $base-font-weight-text: 300;
         padding: 20px 30px;
         border-radius: 25px;
         margin: 0 15px;
-        outline: 0!important;
+        outline: 0 !important;
         background: rgba(37, 111, 124, 0.6);
-        border: 2px solid white;
         color: #fff;
-        font-size: 24px;
+        font-size: 20px;
     }
 }
 
+.animators-menu {
+    align-items: initial;
+}
+
+.animators-menu button {
+    width: 74px;
+    align-self: center;
+
+}
 
 .payment-block {
     padding-top: 100px;
@@ -223,6 +264,11 @@ $base-font-weight-text: 300;
         text-align: center;
         font-weight: 600;
     }
+
+    label {
+        font-size: 24px;
+        font-weight: 500
+    }
 }
 
 
@@ -233,10 +279,10 @@ $base-font-weight-text: 300;
     display: flex;
     justify-content: space-around;
 }
-.bk {
+
+.bk, .rb {
     zoom: 1.8;
     margin-left: 5px;
-
 }
 
 
@@ -265,7 +311,7 @@ $base-font-weight-text: 300;
 .button {
     margin-left: 30px;
     padding: 20px 30px;
-    border: 3px solid rgb(43, 65, 61);
+    border: none;
 }
 
 .toggleButtons {
@@ -282,4 +328,25 @@ $base-font-weight-text: 300;
     &-block {
         margin-top: 50px;
     }
+}
+
+.expand-receipt {
+    -webkit-transform: rotate(-90deg);
+    padding: 5px 10px 0;
+    outline: 0 !important;
+    background: rgba(37, 111, 124, 0.6);
+    color: white;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    position: fixed;
+    right: -1.4%;
+    top: 10.2%;
+    z-index: 9999;
+    p {
+        font-size: 27px;
+        font-weight: 500;
+    }
+}
+
+.order-none {
+    display: none;
 }

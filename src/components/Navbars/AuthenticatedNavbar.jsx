@@ -7,8 +7,6 @@ import {
   Container,
 } from "reactstrap";
 import * as actions from '../../views/authentication/actions';
-// core components
-import ServicesDropdown from '../Dropdowns/ServicesDropdown';
 
 const AuthenticatedNavbar = (props) => {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
@@ -76,7 +74,13 @@ const AuthenticatedNavbar = (props) => {
             navbar
           >
             <Nav navbar>
-              <ServicesDropdown/>
+              <NavItem>
+                <NavLink
+                  to="/category-page"
+                  tag={Link}>
+                  <p>Services</p>
+                </NavLink>
+              </NavItem>
               <NavItem>
                 <NavLink
                   to="/profile-page"
