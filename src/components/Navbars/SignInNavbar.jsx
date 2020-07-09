@@ -12,11 +12,17 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-const SignInNavbar = () => {
-  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
+const SignInNavbar = props => {
+  let color = props.transparent !== undefined && !props.transparent
+  ? "" : "navbar-transparent";
+const [navbarColor, setNavbarColor] = React.useState(color);
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
     const updateNavbarColor = () => {
+      if (props.transparent !== undefined && !props.transparent) {
+
+      }
+      else {
       if (
         document.documentElement.scrollTop > 399 ||
         document.body.scrollTop > 399
@@ -28,6 +34,7 @@ const SignInNavbar = () => {
       ) {
         setNavbarColor("navbar-transparent");
       }
+    }
     };
     window.addEventListener("scroll", updateNavbarColor);
     return function cleanup() {

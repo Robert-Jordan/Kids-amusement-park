@@ -8,23 +8,32 @@ export const checkToken = (token) => {
 };
 
 export const login = (userName, password) => {
-  // if(userName === "1" && password === "1"){
-  var response = {
-    status: 200,
-    data: {
-      token: "21fewg54tggfq234f3t4t",
-      id: "12345"
+  var response;
+  if (password.includes('1')) {
+    response = {
+      status: 200,
+      data: {
+        token: "21fewg54tggfq234f3t4t",
+        id: "12345"
+      }
     }
+  } else {
+    response = {
+      status: 401,
+      data: {
+        errorMessage: "Email or password you entered is incorrect!",
+      }
+    };
   };
   return response;
-// }
-//   var response = {
-//     status: 401,
-//     data: {
-//       errorMessage: "Error! Username or password is wrong.",
-//     }
-//   };
-//   return response;
+  // }
+  //   var response = {
+  //     status: 401,
+  //     data: {
+  //       errorMessage: "Error! Username or password is wrong.",
+  //     }
+  //   };
+  //   return response;
 }
 // axios.post(`${BASE_URL}api/users/authenticate`, {
 //   userName,
@@ -43,7 +52,7 @@ export const register = user => {
   // if(user.firstName === '1') {
   var response = {
     status: 200,
-    data : {
+    data: {
       errorMessage: ''
     }
   };
@@ -70,32 +79,40 @@ export const update = user => {
   //     id,
   //   })
   //   .catch(error => error);
-  if(user.email === '1') {
-    var response = {
-      status: 200,
-    };
-    return response;
-    }
-    var errRes = {
+  var response
+  if (user.password === user.newPassword) {
+    response = {
       status: 400,
-      data : {
-        errorMessage: 'Error! You have entered wrong current password!'
+      data: {
+        errorMessage: 'Old and new password must not match!'
       }
     }
-    return errRes;
+  } else if (user.password.indexOf('1') === -1 || user.password.length < 8) {
+    response = {
+      status: 400,
+      data: {
+        errorMessage: 'You have entered wrong current password!'
+      }
+    }
+  } else {
+    response = {
+      status: 200,
+    };
+  }
+  return response;
 };
 
 export const getUserCredentials = userId => {
   // const token = localStorage.getItem('token');
   // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   // return axios.get(`${BASE_URL}api/users/getUserCredentials`, userId).catch(error => error);
-    var response = {
-      status: 200,
-      data : {
-        firstName: 'FName',
-        lastName: "LName",
-        email: 'email@test.com'
-      }
-    };
-    return response;
+  var response = {
+    status: 200,
+    data: {
+      firstName: 'FName',
+      lastName: "LName",
+      email: 'email@test.com'
+    }
+  };
+  return response;
 };

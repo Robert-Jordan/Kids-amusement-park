@@ -44,12 +44,13 @@ const CheckoutNavbar = (props) => {
             navbar
           >
             <Nav navbar>
-            {/* <NavItem>
-                <NavLink to={props.backLink} tag={Link}>
-                  {props.backText}
+            <NavItem>
+                <NavLink
+                  to="/category-page"
+                  tag={Link}>
+                  <p>Services</p>
                 </NavLink>
-              </NavItem> */}
-              <ServicesDropdown/>
+              </NavItem>
               <NavItem>
                 <NavLink
                   to="/profile-page"

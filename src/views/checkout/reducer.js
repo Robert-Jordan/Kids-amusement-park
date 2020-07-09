@@ -11,8 +11,11 @@ const initialState = {
   total: 0,
   cookery: [],
   decorations: [],
-  animator: {name: '', price: 0},
-  successfulCheckout: '',
+  animator: {
+    name: '',
+    price: 0
+  },
+  successfullOrders: [],
 };
 
 const checkoutReducer = (state = initialState, action) => {
@@ -53,13 +56,13 @@ const checkoutReducer = (state = initialState, action) => {
       let newChildren = action.payload === 'children' ?
         state.childrenCount + 1 :
         state.childrenCount;
-      let total = calculateTotal(state, newAdults, newChildren, 
+      let total = calculateTotal(state, newAdults, newChildren,
         action.cookery, state.decorations, state.animator)
       return {
         ...state,
         adultsCount: newAdults,
-        childrenCount: newChildren,
-        total: total,
+          childrenCount: newChildren,
+          total: total,
       };
     case actions.DECREASE_VISITORS_COUNT:
       let newAdultsDec = action.payload === 'adult' ?
@@ -70,14 +73,14 @@ const checkoutReducer = (state = initialState, action) => {
         (state.childrenCount > 0 ? state.childrenCount - 1 :
           state.childrenCount) :
         state.childrenCount;
-      let totalDec = calculateTotal(state, newAdultsDec, newChildrenDec, 
-          action.cookery, state.decorations, state.animator);
-        return {
-          ...state,
-          adultsCount: newAdultsDec,
+      let totalDec = calculateTotal(state, newAdultsDec, newChildrenDec,
+        action.cookery, state.decorations, state.animator);
+      return {
+        ...state,
+        adultsCount: newAdultsDec,
           childrenCount: newChildrenDec,
           total: totalDec,
-        };    
+      };
     case actions.UPDATE_COOKERY:
       let totalCook = calculateTotal(state, state.adultsCount,
         state.childrenCount, action.payload, state.decorations,
@@ -85,7 +88,7 @@ const checkoutReducer = (state = initialState, action) => {
       return {
         ...state,
         cookery: action.payload,
-        total: totalCook,
+          total: totalCook,
       };
     case actions.UPDATE_DECORATION:
       let totalUpd = calculateTotal(state, state.adultsCount,
@@ -94,7 +97,7 @@ const checkoutReducer = (state = initialState, action) => {
       return {
         ...state,
         decorations: action.payload,
-        total: totalUpd
+          total: totalUpd
       };
     case actions.SET_ANIMATOR:
       let totalAnim = calculateTotal(state, state.adultsCount,
@@ -103,15 +106,23 @@ const checkoutReducer = (state = initialState, action) => {
       return {
         ...state,
         animator: action.payload,
-        total: totalAnim,
+          total: totalAnim,
       };
     case actions.SET_SUCCESSFUL_CHECKOUT:
-    return {
-      ...state,
-      successfulCheckout: 'Your order has completed successfully',
-    }
-    default:
-      return state;
+      state.successfullOrders.push(state)
+      return {
+        ...state,
+        receiptOpen: 'order-none',
+        adultsCount: 0,
+        childrenCount: 0,
+        total: 0,
+        cookery: [],
+        decorations: [],
+        selectedDate: '',
+        selectedTime: { startTime:'', endTime:'' }
+      }
+      default:
+        return state;
   }
 };
 
@@ -119,8 +130,8 @@ const calculateTotal = (state, newAdults, newChildren,
   cookery, decorations, animator) => {
   let visitorsSum = newAdults * state.serviceData.price.adultPrice +
     newChildren * state.serviceData.price.childrenPrice;
-  let cookerySumArr = cookery !== undefined && cookery.length 
-    ? cookery.map(dish => {
+  let cookerySumArr = cookery !== undefined && cookery.length ?
+    cookery.map(dish => {
       let dishPrice;
       state.serviceData.cookery.map(cookeryItem => {
         if (cookeryItem.name === dish.name) {
@@ -128,14 +139,14 @@ const calculateTotal = (state, newAdults, newChildren,
         }
       });
       return dish.count * dishPrice;
-    }) 
-   : 0;
-   let cookerySum = cookerySumArr === 0 || cookerySumArr === undefined
-       ? 0 
-       : cookerySumArr.reduce((a, b) => a + b, 0);
+    }) :
+    0;
+  let cookerySum = cookerySumArr === 0 || cookerySumArr === undefined ?
+    0 :
+    cookerySumArr.reduce((a, b) => a + b, 0);
 
-   let decorationsSumArr = decorations !== undefined && decorations.length 
-    ? decorations.map(decor => {
+  let decorationsSumArr = decorations !== undefined && decorations.length ?
+    decorations.map(decor => {
       let decorPrice;
       state.serviceData.additionalServices.map(decorItem => {
         if (decorItem.name === decor.name) {
@@ -143,13 +154,13 @@ const calculateTotal = (state, newAdults, newChildren,
         }
       });
       return decor.count * decorPrice;
-    }) 
-   : 0;
-   let decorationsSum = decorationsSumArr === 0 || decorationsSumArr === undefined
-       ? 0 
-       : decorationsSumArr.reduce((a, b) => a + b, 0);
+    }) :
+    0;
+  let decorationsSum = decorationsSumArr === 0 || decorationsSumArr === undefined ?
+    0 :
+    decorationsSumArr.reduce((a, b) => a + b, 0);
 
-    return visitorsSum + cookerySum + decorationsSum + animator.price;
+  return visitorsSum + cookerySum + decorationsSum + animator.price;
 }
 
 export default checkoutReducer;

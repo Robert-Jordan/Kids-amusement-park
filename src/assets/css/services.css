@@ -171,9 +171,7 @@
     .btn-checkout:active, .btn-checkout:focus {
       outline: none;
     }
-    .wrapper .section .container {
-      padding: 60px 0 20px;
-    }
+
     .wrapper .section table {
       font-size: 24px;
     }
@@ -190,3 +188,14 @@
     }
 
     .wrapper .section table tr:nth-child(even) {background-color: #f2f2f2;}
+
+    .wrapper .section .container {
+      /* padding: 60px 0 20px; */
+    }
+    .card-profile-user {
+      padding-bottom: 30px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }

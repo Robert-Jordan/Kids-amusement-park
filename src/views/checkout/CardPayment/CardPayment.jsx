@@ -42,7 +42,8 @@ const CardPayment = props => {
           </div>
         </div>
         <button className="guests__btn">
-          <NavLink onClick={()=>{dispatch(actions.setSuccessfulCheckout())}} 
+          <NavLink 
+            onClick={()=>{dispatch(actions.setSuccessfulCheckout())}} 
             to='/index' tag={Link}>
             Complete checkout
           </NavLink>

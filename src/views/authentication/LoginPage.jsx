@@ -72,7 +72,7 @@ const LoginPage = props => {
                 <div className="alert-icon">
                   <i className="now-ui-icons objects_support-17"></i>
                 </div>
-                <strong>Error!</strong>{errorMessage}
+                <strong>Error! </strong>{errorMessage}
                 <button
                   type="button"
                   className="close"

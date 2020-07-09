@@ -36,7 +36,7 @@ const CategoryPage = props => {
     return (
         <>
             {props.loggedIn
-                ? <AuthenticatedNavbar loggedIn={props.loggedIn} />
+                ? <AuthenticatedNavbar loggedIn={props.loggedIn} transparent={false} />
                 : <IndexNavbar transparent={false}/>}
             <div className="wrapper category-page">
                 {/* <CategoryHeader /> */}

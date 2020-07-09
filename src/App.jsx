@@ -30,16 +30,12 @@ const App = () => {
       <Switch>
         <Route path='/ex' render={props => <Example {...props} />} />
         <Route path='/index' render={props => <Index {...props} loggedIn={loggedIn} />} />
-        {/* <PrivateRoute
+        <PrivateRoute
           path='/profile-page'
-          loggedIn={loggedIn}// REMOVE !
+          loggedIn={loggedIn}
           firstName={firstName}
           lastName={lastName}
           email={email}
-          component={ProfilePage}
-        /> */}
-        <Route
-          path='/profile-page'
           component={ProfilePage}
         />
         <Route

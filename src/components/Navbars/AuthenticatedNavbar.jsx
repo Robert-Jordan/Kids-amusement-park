@@ -9,21 +9,28 @@ import {
 import * as actions from '../../views/authentication/actions';
 
 const AuthenticatedNavbar = (props) => {
-  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
+  let color = props.transparent !== undefined && !props.transparent
+    ? "" : "navbar-transparent";
+  const [navbarColor, setNavbarColor] = React.useState(color);
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const dispatch = useDispatch();
   React.useEffect(() => {
     const updateNavbarColor = () => {
-      if (
-        document.documentElement.scrollTop > 399 ||
-        document.body.scrollTop > 399
-      ) {
-        setNavbarColor("");
-      } else if (
-        document.documentElement.scrollTop < 400 ||
-        document.body.scrollTop < 400
-      ) {
-        setNavbarColor("navbar-transparent");
+      if (props.transparent !== undefined && !props.transparent) {
+
+      }
+      else {
+        if (
+          document.documentElement.scrollTop > 399 ||
+          document.body.scrollTop > 399
+        ) {
+          setNavbarColor("");
+        } else if (
+          document.documentElement.scrollTop < 400 ||
+          document.body.scrollTop < 400
+        ) {
+          setNavbarColor("navbar-transparent");
+        }
       }
     };
     window.addEventListener("scroll", updateNavbarColor);

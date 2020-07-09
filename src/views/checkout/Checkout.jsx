@@ -264,7 +264,6 @@ const Checkout = (props) => {
                     <div className="menu-container">
                         {serviceData.cookery && <div className="menu">
                             <h3 className="menu__title">Cookery</h3>
-                            <button className="menu__btn">+</button>
                             {serviceData.cookery.map((dish) => {
                                 let ind = cookeryCount.findIndex(cookery => cookery.name === dish.name);
                                 return <div className="optional">
@@ -285,7 +284,6 @@ const Checkout = (props) => {
                         }
                         {serviceData.animators && <div className="menu animators-menu">
                             <h3 className="menu__title">Animators</h3>
-                            <button className="menu__btn">+</button>
                             {serviceData.animators.map((animator) => {
                                 return <div className="animator-block">
                                     <label className="animator__text" htmlFor={animator.name}>
@@ -304,7 +302,6 @@ const Checkout = (props) => {
                         }
                         {serviceData.additionalServices && <div className="menu">
                             <h3 className="menu__title">Decor</h3>
-                            <button className="menu__btn">+</button>
                             {serviceData.additionalServices.map(decor => {
                                 let ind = chosenDecor.findIndex(dec => dec.name === decor.name);
                                 return <div className="optional">
@@ -362,7 +359,8 @@ const Checkout = (props) => {
                                         <p className="guests-block__text"
                                             style={{ textAlign: "center", fontSize: 36, color: 'red' }}>
                                             You must choose date and time
-                                </p>}</>}
+                                        </p>
+                                    </>}
                             </>
                         }
                     </div>
