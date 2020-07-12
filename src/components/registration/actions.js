@@ -1,4 +1,4 @@
-import * as userService from '../../api/index';
+import * as userService from '../../services/api/index';
 
 export const REGISTER_REQUEST = 'USERS_REGISTER_REQUEST';
 export const REGISTER_SUCCESS = 'USERS_REGISTER_SUCCESS';

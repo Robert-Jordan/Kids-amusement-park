@@ -1,4 +1,4 @@
-import * as userService from '../../api/index';
+import * as userService from '../../services/api/index';
 
 export const UPDATE_REQUEST = 'USERS_UPDATE_REQUEST';
 export const UPDATE_SUCCESS = 'USERS_UPDATE_SUCCESS';

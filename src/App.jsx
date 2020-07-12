@@ -8,7 +8,7 @@ import "assets/demo/demo.css";
 import "assets/demo/nucleo-icons-page-styles.css";
 import "assets/css/services.css";
 // main components
-import Index from "components/Index";
+import Index from "components/homePage/Index";
 import SignUp from "components/registration/SignUp";
 import LoginPage from "components/authentication/LoginPage";
 import ProfilePage from "components/profile/ProfilePage";

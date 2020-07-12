@@ -1,7 +1,7 @@
 import * as actions from './actions.js';
 import {
   services
-} from '../../data/data.js';
+} from '../../services/data/data.js';
 
 const initialState = {
   serviceData: '',
