@@ -17,11 +17,11 @@ import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // redux
-import * as actions from '../../views/profile/actions';
+import * as actions from './actions';
 // core components
-import SignInNavbar from "components/Navbars/SignInNavbar";
-import ProfilePageHeader from "components/Headers/ProfilePageHeader.jsx";
-import DarkFooter from "components/Footers/DarkFooter";
+import SignInNavbar from "shared/Navbars/SignInNavbar";
+import ProfilePageHeader from "shared/Headers/ProfilePageHeader.jsx";
+import DarkFooter from "shared/Footers/DarkFooter";
 
 const ProfilePage = props => {
   React.useEffect(() => {

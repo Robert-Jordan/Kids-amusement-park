@@ -14,7 +14,7 @@ import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // redux
-import * as actions from '../../views/profile/actions';
+import * as actions from '../../components/profile/actions';
 
 const ProfilePageHeader = (props) => {
   let pageHeader = React.createRef();

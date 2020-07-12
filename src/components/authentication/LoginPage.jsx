@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 // redux components 
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 // reactstrap components
 import {
   Button, Card, CardTitle, CardHeader, CardBody, CardFooter,
@@ -18,8 +17,8 @@ import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // core components
-import SignInNavbar from "components/Navbars/SignInNavbar";
-import TransparentFooter from "components/Footers/TransparentFooter.jsx";
+import SignInNavbar from "../../shared/Navbars/SignInNavbar";
+import TransparentFooter from "../../shared/Footers/TransparentFooter.jsx";
 import * as actions from './actions';
 
 const LoginPage = props => {

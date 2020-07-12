@@ -1,14 +1,10 @@
 import React from "react";
-import { Link, withRouter } from 'react-router-dom';
-import { Alert, Container } from "reactstrap";
-import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 // core components
-import IndexNavbar from "components/Navbars/IndexNavbar";
-import AuthenticatedNavbar from "components/Navbars/AuthenticatedNavbar";
-import IndexHeader from "components/Headers/IndexHeader.jsx";
-import DarkFooter from "components/Footers/DarkFooter.jsx";
-import Carousel from 'views/index-sections/Carousel';
-
+import IndexNavbar from "../shared/Navbars/IndexNavbar";
+import AuthenticatedNavbar from "../shared/Navbars/AuthenticatedNavbar";
+import IndexHeader from "../shared/Headers/IndexHeader";
+import DarkFooter from "../shared/Footers/DarkFooter";
 // sections for this page
 import Tabs from "./index-sections/Tabs.js";
 import Maps from "./index-sections/Maps.js";
@@ -31,9 +27,7 @@ const Index = (props) => {
       {props.loggedIn ? <AuthenticatedNavbar loggedIn={props.loggedIn} /> : <IndexNavbar />}
       <div className="wrapper">
         <IndexHeader />
-      
         <div className="main">
-          {/* <Carousel/> */}
           <Tabs/>
           <Maps/>
         </div>

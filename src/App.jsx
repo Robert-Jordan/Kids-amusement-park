@@ -8,15 +8,14 @@ import "assets/demo/demo.css";
 import "assets/demo/nucleo-icons-page-styles.css";
 import "assets/css/services.css";
 // main components
-import Index from "views/Index";
-import SignUp from "views/registration/SignUp";
-import LoginPage from "views/authentication/LoginPage";
-import ProfilePage from "views/profile/ProfilePage";
-import Example from "views/Example";
+import Index from "components/Index";
+import SignUp from "components/registration/SignUp";
+import LoginPage from "components/authentication/LoginPage";
+import ProfilePage from "components/profile/ProfilePage";
 import PrivateRoute from './shared/Routes/PrivateRoute';
-import CategoryPage from '../src/views/category/CategoryPage';
-import Checkout from '../src/views/checkout/Checkout.jsx';
-import CardPayment from '../src/views/checkout/CardPayment/CardPayment.jsx';
+import CategoryPage from 'components/category/CategoryPage';
+import Checkout from 'components/checkout/Checkout.jsx';
+import CardPayment from 'components/checkout/CardPayment/CardPayment.jsx';
 
 
 const App = () => {
@@ -28,7 +27,6 @@ const App = () => {
   return (
     <Switch>
       <Switch>
-        <Route path='/ex' render={props => <Example {...props} />} />
         <Route path='/index' render={props => <Index {...props} loggedIn={loggedIn} />} />
         <PrivateRoute
           path='/profile-page'

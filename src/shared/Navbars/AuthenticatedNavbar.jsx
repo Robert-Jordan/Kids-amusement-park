@@ -6,7 +6,7 @@ import {
   Collapse, NavbarBrand, Navbar, NavItem, NavLink, Nav,
   Container,
 } from "reactstrap";
-import * as actions from '../../views/authentication/actions';
+import * as actions from '../../components/authentication/actions';
 
 const AuthenticatedNavbar = (props) => {
   let color = props.transparent !== undefined && !props.transparent

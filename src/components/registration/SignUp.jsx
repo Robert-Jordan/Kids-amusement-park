@@ -1,11 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 // redux components 
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from './actions';
 // router
-import { withRouter } from 'react-router-dom';
-import { NavLink } from "react-router-dom";
+import { withRouter, Link, NavLink } from "react-router-dom";
 // reactstrap components
 import {
   Button, Card, CardHeader, CardBody, CardFooter, CardTitle,
@@ -21,8 +19,8 @@ import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // core components
-import SignInNavbar from "components/Navbars/SignInNavbar";
-import TransparentFooter from "components/Footers/TransparentFooter.jsx";
+import SignInNavbar from "../../shared/Navbars/SignInNavbar";
+import TransparentFooter from "../../shared/Footers/TransparentFooter.jsx";
 
 
 const SignUp = props => {

@@ -3,10 +3,10 @@ import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 // core components
-import IndexNavbar from "components/Navbars/IndexNavbar";
-import AuthenticatedNavbar from "components/Navbars/AuthenticatedNavbar";
-import DarkFooter from "components/Footers/DarkFooter.jsx";
-import CategoryHeader from 'components/Headers/CategoryHeader';
+import IndexNavbar from "../../shared/Navbars/IndexNavbar";
+import AuthenticatedNavbar from "../../shared/Navbars/AuthenticatedNavbar";
+import DarkFooter from "../../shared/Footers/DarkFooter.jsx";
+import CategoryHeader from '../../shared/Headers/CategoryHeader';
 import ServicesList from './ServicesList'
 import CategoriesFiltering from './CategoriesFiltering';
 import * as actions from './actions';
