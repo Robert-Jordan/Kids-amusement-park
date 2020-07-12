@@ -13,7 +13,7 @@ import SignUp from "views/registration/SignUp";
 import LoginPage from "views/authentication/LoginPage";
 import ProfilePage from "views/profile/ProfilePage";
 import Example from "views/Example";
-import PrivateRoute from '../src/components/Routes/PrivateRoute';
+import PrivateRoute from './shared/Routes/PrivateRoute';
 import CategoryPage from '../src/views/category/CategoryPage';
 import Checkout from '../src/views/checkout/Checkout.jsx';
 import CardPayment from '../src/views/checkout/CardPayment/CardPayment.jsx';

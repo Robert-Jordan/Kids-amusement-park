@@ -4,9 +4,9 @@ import { NavLink } from "reactstrap";
 // redux
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../actions';
-import CheckoutNavbar from '../../../components/Navbars/CheckoutNavbar.jsx'
-import IndexNavbar from "../../../components/Navbars/IndexNavbar.jsx";
-import DarkFooter from '../../../components/Footers/DarkFooter.jsx'
+import CheckoutNavbar from '../../../shared/Navbars/CheckoutNavbar.jsx'
+import IndexNavbar from "../../../shared/Navbars/IndexNavbar.jsx";
+import DarkFooter from '../../../shared/Footers/DarkFooter.jsx'
 import '../../../assets/css/reset.css'
 import './CardPayment.scss'
 

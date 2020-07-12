@@ -10,9 +10,9 @@ import Datetime from "react-datetime";
 // moment
 import moment from 'moment';
 // main components
-import CheckoutNavbar from '../../components/Navbars/CheckoutNavbar.jsx';
-import IndexNavbar from "../../components/Navbars/IndexNavbar";
-import DarkFooter from '../../components/Footers/DarkFooter.jsx';
+import CheckoutNavbar from '../../shared/Navbars/CheckoutNavbar.jsx';
+import IndexNavbar from "../../shared/Navbars/IndexNavbar";
+import DarkFooter from '../../shared/Footers/DarkFooter.jsx';
 import CheckoutOrderComponent from './CheckoutOrderComponent/CheckoutOrderComponent.jsx';
 // css
 import '../../assets/css/reset.css';
