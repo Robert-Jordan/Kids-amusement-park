@@ -28,8 +28,8 @@ const Index = (props) => {
       <div className="wrapper">
         <IndexHeader />
         <div className="main">
-          {/* <Tabs/>
-          <Maps/> */}
+          <Tabs/>
+          <Maps/>
         </div>
         <DarkFooter />
       </div>
