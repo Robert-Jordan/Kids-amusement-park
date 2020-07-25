@@ -69,7 +69,7 @@ export const cookery = [{
 }
 ]
 
-const animators = [{
+export const animators = [{
     name: "Little Pony",
     price: 2000
 },
@@ -99,7 +99,7 @@ const animators = [{
 },
 ];
 
-const additionalServices = [{
+export const additionalServices = [{
     name: "Pinata",
     price: 200
 },

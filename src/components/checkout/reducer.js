@@ -95,7 +95,7 @@ const checkoutReducer = (state = initialState, action) => {
       return {
         ...state,
         decorations: action.payload,
-          total: totalUpd
+        total: totalUpd
       };
     case actions.SET_ANIMATOR:
       let totalAnim = calculateTotal(state, state.adultsCount,
@@ -104,7 +104,7 @@ const checkoutReducer = (state = initialState, action) => {
       return {
         ...state,
         animator: action.payload,
-          total: totalAnim,
+        total: totalAnim,
       };
     case actions.SET_SUCCESSFUL_CHECKOUT:
       state.successfullOrders.push(state)
