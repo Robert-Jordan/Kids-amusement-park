@@ -1,7 +1,5 @@
 import * as actions from './actions.js';
-import {
-  services
-} from '../../services/data/data.js';
+import { services } from '../../services/data/data.js';
 
 const initialState = {
   serviceData: '',
@@ -57,12 +55,12 @@ const checkoutReducer = (state = initialState, action) => {
         state.childrenCount + 1 :
         state.childrenCount;
       let total = calculateTotal(state, newAdults, newChildren,
-        action.cookery, state.decorations, state.animator)
+        state.cookery, state.decorations, state.animator)
       return {
         ...state,
         adultsCount: newAdults,
-          childrenCount: newChildren,
-          total: total,
+        childrenCount: newChildren,
+        total: total,
       };
     case actions.DECREASE_VISITORS_COUNT:
       let newAdultsDec = action.payload === 'adult' ?
@@ -74,7 +72,7 @@ const checkoutReducer = (state = initialState, action) => {
           state.childrenCount) :
         state.childrenCount;
       let totalDec = calculateTotal(state, newAdultsDec, newChildrenDec,
-        action.cookery, state.decorations, state.animator);
+        state.cookery, state.decorations, state.animator);
       return {
         ...state,
         adultsCount: newAdultsDec,
@@ -88,7 +86,7 @@ const checkoutReducer = (state = initialState, action) => {
       return {
         ...state,
         cookery: action.payload,
-          total: totalCook,
+        total: totalCook,
       };
     case actions.UPDATE_DECORATION:
       let totalUpd = calculateTotal(state, state.adultsCount,
@@ -128,8 +126,16 @@ const checkoutReducer = (state = initialState, action) => {
 
 const calculateTotal = (state, newAdults, newChildren,
   cookery, decorations, animator) => {
-  let visitorsSum = newAdults * state.serviceData.price.adultPrice +
-    newChildren * state.serviceData.price.childrenPrice;
+   let adultPrice = 0;
+   if(state.serviceData.price !== undefined){
+     adultPrice = state.serviceData.price.adultPrice;
+   }
+   let childrenPrice = 0;
+   if(state.serviceData.price !== undefined){
+     childrenPrice = state.serviceData.price.childrenPrice;
+   }
+
+  let visitorsSum = newAdults * adultPrice + newChildren * childrenPrice;
   let cookerySumArr = cookery !== undefined && cookery.length ?
     cookery.map(dish => {
       let dishPrice;

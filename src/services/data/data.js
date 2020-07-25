@@ -27,7 +27,7 @@ const possibleTimeForGameRooms = [{
 }
 ]
 
-const cookery = [{
+export const cookery = [{
     name: "Cake",
     portion: "800g",
     price: 200

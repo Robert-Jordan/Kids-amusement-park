@@ -18,14 +18,14 @@ const categoriesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 filteredServices: sortedPriceArr,
-                    services: state.services,
-                    appliedFilters: addFilterIfNotExists(actions.SORT_BY_PRICE, state.appliedFilters)
+                services: state.services,
+                appliedFilters: addFilterIfNotExists(actions.SORT_BY_PRICE, state.appliedFilters)
             };
         case actions.FILTER_BY_CITY:
             let servicesC;
             if(state.appliedFilters && state.appliedFilters.length > 1 
                 && state.appliedFilters.includes(actions.FILTER_BY_CITY)) {
-                servicesC = filterCategory(state.services, state.filteredCategory);
+                servicesC = filterByCategory(state.services, state.filteredCategory);
                 removeFilter(actions.FILTER_BY_CITY, state.appliedFilters);
             }
             else if(state.appliedFilters && state.appliedFilters.length > 0 
@@ -39,7 +39,7 @@ const categoriesReducer = (state = initialState, action) => {
                        state.services;
             }
             let city = action.payload.value;
-            let filteredByCity = filterCity(servicesC, city);
+            let filteredByCity = filterByCity(servicesC, city);
             return {
                 ...state,
                 filteredServices: filteredByCity,
@@ -51,7 +51,7 @@ const categoriesReducer = (state = initialState, action) => {
             let servicesCat; 
             if(state.appliedFilters && state.appliedFilters.length > 1 
                 && state.appliedFilters.includes(actions.FILTER_BY_CATEGORY)) {
-                servicesCat = filterCity(state.services, state.filteredCity);
+                servicesCat = filterByCity(state.services, state.filteredCity);
                 removeFilter(actions.FILTER_BY_CATEGORY, state.appliedFilters);
             }
             else if(state.appliedFilters && state.appliedFilters.length > 0 
@@ -66,7 +66,7 @@ const categoriesReducer = (state = initialState, action) => {
             }
             
             let category = action.payload.value;
-            let filteredByCategory = filterCategory(servicesCat, category);
+            let filteredByCategory = filterByCategory(servicesCat, category);
             return {
                 ...state,
                 filteredServices: filteredByCategory,
@@ -85,7 +85,7 @@ const categoriesReducer = (state = initialState, action) => {
     }
 };
 
-const filterCity = (list, filter) => {
+const filterByCity = (list, filter) => {
     let filteredList = [];
     list.map((service) => {
         if (service.city.name === filter) {
@@ -95,7 +95,7 @@ const filterCity = (list, filter) => {
     return filteredList;
 }
 
-const filterCategory = (list, filter) => {
+const filterByCategory = (list, filter) => {
     let filteredList = [];
     list.map((categories) => {
         categories.category.map((cat) => {

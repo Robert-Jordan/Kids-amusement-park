@@ -6,8 +6,8 @@ import AuthenticatedNavbar from "../../shared/Navbars/AuthenticatedNavbar";
 import IndexHeader from "../../shared/Headers/IndexHeader";
 import DarkFooter from "../../shared/Footers/DarkFooter";
 // sections for this page
-import Tabs from "../index-sections/Tabs.js";
-import Maps from "../index-sections/Maps.js";
+import Tabs from "./Tabs";
+import Maps from "./Maps";
 
 const Index = (props) => {
   React.useEffect(() => {
@@ -28,8 +28,8 @@ const Index = (props) => {
       <div className="wrapper">
         <IndexHeader />
         <div className="main">
-          <Tabs/>
-          <Maps/>
+          {/* <Tabs/>
+          <Maps/> */}
         </div>
         <DarkFooter />
       </div>

@@ -5,12 +5,6 @@ export const sortByPrice = payload => ({
     payload
 });
 
-export const LOAD_DATA = "LOAD_DATA";
-export const loadData = (payload) => ({
-    type: LOAD_DATA,
-    payload
-});
-
 export const FILTER_BY_CITY = "FILTER_BY_CITY";
 export const filterByCity = (payload) => ({
     type: FILTER_BY_CITY,
@@ -27,45 +21,3 @@ export const CLEAR_FILTERS = "CLEAR_FILTERS";
 export const clearFilters = () => ({
     type: CLEAR_FILTERS
 });
-
-export const GO_TO_CHECKOUT = 'GO_TO_CHECKOUT';
-export const goToCheckout = service => async (dispatch) => {
-//   dispatch({
-//     type: CHECK_TOKEN_REQUEST
-//   });
-//   const result = await userService.checkToken(token);
-//   if (result.status === 200 && result !== undefined) {
-//     localStorage.setItem('token', result.data.token);
-//     dispatch({
-//       type: CHECK_TOKEN_SUCCESS,
-//       token: result.data.token,
-//       id: result.data.id
-//     });
-//   } else {
-//     localStorage.removeItem('token');
-//     dispatch({
-//       type: CHECK_TOKEN_FAILURE
-//     });
-//   }
-};
-
-export const VIEW_SERVICE_DETAILS = 'VIEW_SERVICE_DETAILS';
-export const viewDetails = service => async (dispatch) => {
-    // dispatch({
-    //   type: CHECK_TOKEN_REQUEST
-    // });
-    // const result = await userService.checkToken(token);
-    // if (result.status === 200 && result !== undefined) {
-    //   localStorage.setItem('token', result.data.token);
-    //   dispatch({
-    //     type: CHECK_TOKEN_SUCCESS,
-    //     token: result.data.token,
-    //     id: result.data.id
-    //   });
-    // } else {
-    //   localStorage.removeItem('token');
-    //   dispatch({
-    //     type: CHECK_TOKEN_FAILURE
-    //   });
-    // }
-  };
