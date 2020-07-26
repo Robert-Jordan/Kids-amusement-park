@@ -1,5 +1,5 @@
-import * as actions from './actions.js';
-import { services } from '../../services/data/data.js';
+import * as actions from './actions';
+import { services } from '../../services/data/data';
 
 const initialState = {
   serviceData: '',

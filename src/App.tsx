@@ -2,20 +2,20 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useSelector } from 'react-redux';
 // styles for this kit
-import "assets/css/bootstrap.min.css";
-import "assets/scss/now-ui-kit.scss";
-import "assets/demo/demo.css";
-import "assets/demo/nucleo-icons-page-styles.css";
-import "assets/css/services.css";
+import "./assets/css/bootstrap.min.css";
+import "./assets/scss/now-ui-kit.scss";
+import "./assets/demo/demo.css";
+import "./assets/demo/nucleo-icons-page-styles.css";
+import "./assets/css/services.css";
 // main components
-import Index from "components/homePage/Index";
-import SignUp from "components/registration/SignUp";
-import LoginPage from "components/authentication/LoginPage";
-import ProfilePage from "components/profile/ProfilePage";
+import Index from "./components/homePage/Index";
+import SignUp from "./components/registration/SignUp";
+import LoginPage from "./components/authentication/LoginPage";
+import ProfilePage from "./components/profile/ProfilePage";
 import PrivateRoute from './shared/Routes/PrivateRoute';
-import CategoryPage from 'components/category/CategoryPage';
-import Checkout from 'components/checkout/Checkout.jsx';
-import CardPayment from 'components/checkout/CardPayment/CardPayment.jsx';
+import CategoryPage from './components/category/CategoryPage';
+import Checkout from './components/checkout/Checkout';
+import CardPayment from './components/checkout/CardPayment/CardPayment';
 
 
 const App = () => {

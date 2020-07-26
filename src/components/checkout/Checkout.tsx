@@ -10,17 +10,17 @@ import Datetime from "react-datetime";
 // moment
 import moment from 'moment';
 // main components
-import CheckoutNavbar from '../../shared/Navbars/CheckoutNavbar.jsx';
+import CheckoutNavbar from '../../shared/Navbars/CheckoutNavbar';
 import IndexNavbar from "../../shared/Navbars/IndexNavbar";
-import DarkFooter from '../../shared/Footers/DarkFooter.jsx';
-import CheckoutOrderComponent from './CheckoutOrderComponent/CheckoutOrderComponent.jsx';
+import DarkFooter from '../../shared/Footers/DarkFooter';
+import CheckoutOrderComponent from './CheckoutOrderComponent/CheckoutOrderComponent';
 // css
 import '../../assets/css/reset.css';
 import './Checkout.scss';
 // images
-import Adult from 'assets/img/adult.svg';
-import Child16 from 'assets/img/child16.svg';
-import Receipt from 'assets/img/Receipt.png';
+import Adult from '../../assets/img/adult.svg';
+import Child16 from '../../assets/img/child16.svg';
+import Receipt from '../../assets/img/Receipt.png';
 
 const Checkout = (props) => {
     React.useEffect(() => {

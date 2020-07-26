@@ -107,19 +107,19 @@ const Tabs = () => {
                     activeTab={"gameRooms" + gameRooms}
                   >
                     <TabPane tabId="gameRooms1"  >
-                      <img src={require("assets/img/BallPool.jpg")}/>
+                      <img src={require("../../assets/img/BallPool.jpg")}/>
                     </TabPane>
                     <TabPane tabId="gameRooms2">
-                    <img src={require("assets/img/TrampolineArena.jpg")}/>
+                    <img src={require("../../assets/img/TrampolineArena.jpg")}/>
                     </TabPane>
                     <TabPane tabId="gameRooms3">
-                    <img src={require("assets/img/FoamPit.jpg")}/>
+                    <img src={require("../../assets/img/FoamPit.jpg")}/>
                     </TabPane>
                     <TabPane tabId="gameRooms4">
-                    <img src={require("assets/img/Bungee.png")}/>
+                    <img src={require("../../assets/img/Bungee.png")}/>
                     </TabPane>
                     <TabPane tabId="gameRooms5">
-                    <img src={require("assets/img/Mazes.jpg")}/>
+                    <img src={require("../../assets/img/Mazes.jpg")}/>
                     </TabPane>
                   </TabContent>
                 </CardBody>
@@ -191,16 +191,16 @@ const Tabs = () => {
                     activeTab={"birthdays" + birthdays}
                   >
                     <TabPane tabId="birthdays1"  >
-                      <img src={require("assets/img/FestivalTable.jpg")}/>
+                      <img src={require("../../assets/img/FestivalTable.jpg")}/>
                     </TabPane>
                     <TabPane tabId="birthdays2">
-                    <img src={require("assets/img/AngryBirds.jpg")}/>
+                    <img src={require("../../assets/img/AngryBirds.jpg")}/>
                     </TabPane>
                     <TabPane tabId="birthdays3">
-                    <img src={require("assets/img/Masha.jpg")}/>
+                    <img src={require("../../assets/img/Masha.jpg")}/>
                     </TabPane>
                     <TabPane tabId="birthdays4">
-                    <img src={require("assets/img/Dogs.jpg")}/>
+                    <img src={require("../../assets/img/Dogs.jpg")}/>
                     </TabPane>
                   </TabContent>
                 </CardBody>
@@ -260,13 +260,13 @@ const Tabs = () => {
                     activeTab={"specialRooms" + specialRooms}
                   >
                     <TabPane tabId="specialRooms1"  >
-                      <img src={require("assets/img/LaughterRoom.jpg")}/>
+                      <img src={require("../../assets/img/LaughterRoom.jpg")}/>
                     </TabPane>
                     <TabPane tabId="specialRooms2">
-                    <img src={require("assets/img/RoomOfFear1.jpg")}/>
+                    <img src={require("../../assets/img/RoomOfFear1.jpg")}/>
                     </TabPane>
                     <TabPane tabId="specialRooms3">
-                    <img src={require("assets/img/RoomOfFear2.jpg")}/>
+                    <img src={require("../../assets/img/RoomOfFear2.jpg")}/>
                     </TabPane>
                   </TabContent>
                 </CardBody>
@@ -311,10 +311,10 @@ const Tabs = () => {
                     activeTab={"halls" + halls}
                   >
                     <TabPane tabId="halls1"  >
-                      <img src={require("assets/img/Rollerdrome.jpg")}/>
+                      <img src={require("../../assets/img/Rollerdrome.jpg")}/>
                     </TabPane>
                     <TabPane tabId="halls2">
-                    <img src={require("assets/img/LaserTag.jpg")}/>
+                    <img src={require("../../assets/img/LaserTag.jpg")}/>
                     </TabPane>
                   </TabContent>
                 </CardBody>

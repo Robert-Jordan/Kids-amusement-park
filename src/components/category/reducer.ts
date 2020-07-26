@@ -1,4 +1,4 @@
-import { services } from '../../services/data/data.js'
+import { services } from '../../services/data/data'
 import * as actions from './actions';
 
 const initialState = {

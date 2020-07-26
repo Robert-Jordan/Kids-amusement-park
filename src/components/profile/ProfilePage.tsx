@@ -19,9 +19,9 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // redux
 import * as actions from './actions';
 // core components
-import SignInNavbar from "shared/Navbars/SignInNavbar";
-import ProfilePageHeader from "shared/Headers/ProfilePageHeader.jsx";
-import DarkFooter from "shared/Footers/DarkFooter";
+import SignInNavbar from "../../shared/Navbars/SignInNavbar";
+import ProfilePageHeader from "../../shared/Headers/ProfilePageHeader";
+import DarkFooter from "../../shared/Footers/DarkFooter";
 
 const ProfilePage = props => {
   React.useEffect(() => {
@@ -142,7 +142,7 @@ const ProfilePage = props => {
                   <Col className="ml-auto mr-auto" md="4">
                     <Form className='form' onSubmit={handleSubmit}>
                       <div className="photo-container">
-                        <img alt="..." src={require("assets/img/default-avatar.png")}></img>
+                        <img alt="..." src={require("../../assets/img/default-avatar.png")}></img>
                       </div>
                       {/* todo: add logic */}
                       {/* <h3 className="title">{props.firstName + ' ' + props.lastName}</h3> */}

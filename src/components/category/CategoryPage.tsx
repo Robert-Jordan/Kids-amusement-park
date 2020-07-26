@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 // core components
 import IndexNavbar from "../../shared/Navbars/IndexNavbar";
 import AuthenticatedNavbar from "../../shared/Navbars/AuthenticatedNavbar";
-import DarkFooter from "../../shared/Footers/DarkFooter.jsx";
+import DarkFooter from "../../shared/Footers/DarkFooter";
 import CategoryHeader from '../../shared/Headers/CategoryHeader';
 import ServicesList from './ServicesList'
 import CategoriesFiltering from './CategoriesFiltering';

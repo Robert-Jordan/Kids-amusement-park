@@ -25,7 +25,7 @@ const IndexHeader = () => {
         <div
           className='page-header-image'
           style={{
-            backgroundImage: "url(" + require("assets/img/header.jpg") + ")"
+            backgroundImage: "url(" + require("../../assets/img/header.jpg") + ")"
           }}
           ref={pageHeader}
         ></div>

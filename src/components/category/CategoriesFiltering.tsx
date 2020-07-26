@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 // reactstrap
 import { Button } from "reactstrap";
 // core components 
-import { serviceCategories, serviceCities } from '../../services/data/data.js';
+import { serviceCategories, serviceCities } from '../../services/data/data';
 
 const CategoriesFiltering = props => {
     const sortByPrice = e => {

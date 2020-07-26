@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as actions from '../actions.js';
+import * as actions from '../actions';
 import '../../../assets/css/reset.css';
 import './CheckoutOrderComponent.scss';
 

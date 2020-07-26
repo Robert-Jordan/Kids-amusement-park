@@ -18,7 +18,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // core components
 import SignInNavbar from "../../shared/Navbars/SignInNavbar";
-import TransparentFooter from "../../shared/Footers/TransparentFooter.jsx";
+import TransparentFooter from "../../shared/Footers/TransparentFooter";
 import * as actions from './actions';
 
 const LoginPage = props => {
