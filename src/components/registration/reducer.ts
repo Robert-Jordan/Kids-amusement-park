@@ -1,4 +1,4 @@
-import { RegistrationActions, RegistrationState } from './types';
+import { RegistrationState } from './types';
 import { Reducer } from 'redux';
 import { REGISTER_REQUEST, REGISTER_FAILURE, REGISTER_SUCCESS } from './actions';
 

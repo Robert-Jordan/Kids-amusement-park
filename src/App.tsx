@@ -11,7 +11,7 @@ import "./assets/css/services.css";
 import Index from "./components/homePage/Index";
 import SignUp from "./components/registration/SignUp";
 import LoginPage from "./components/authentication/LoginPage";
-// import ProfilePage from "./components/profile/ProfilePage";
+import ProfilePage from "./components/profile/ProfilePage";
 import PrivateRoute from './shared/Routes/PrivateRoute';
 // import CategoryPage from './components/category/CategoryPage';
 // import Checkout from './components/checkout/Checkout';
@@ -20,9 +20,9 @@ import PrivateRoute from './shared/Routes/PrivateRoute';
 
 const App = () => {
   const loggedIn = useSelector(state => state.authentication.loggedIn);
-  // const firstName = useSelector(state => state.profile.firstName);
-  // const lastName = useSelector(state => state.profile.lastName);
-  // const email = useSelector(state => state.profile.email);
+  const firstName = useSelector(state => state.profile.firstName);
+  const lastName = useSelector(state => state.profile.lastName);
+  const email = useSelector(state => state.profile.email);
 
   return (
     <Switch>
@@ -32,14 +32,14 @@ const App = () => {
             {...props}
             loggedIn={loggedIn} 
           />} />
-        {/* <PrivateRoute
+        <PrivateRoute
           path='/profile-page'
-          // loggedIn={loggedIn}
-          // firstName={firstName}
-          // lastName={lastName}
-          // email={email}
+          loggedIn={loggedIn}
+          firstName={firstName}
+          lastName={lastName}
+          email={email}
           component={ProfilePage}
-        /> */}
+        />
         <Route
           path='/login-page'
           render={props => <LoginPage {...props} />}
@@ -48,28 +48,20 @@ const App = () => {
           path='/registration-page'
           render={props => <SignUp {...props} />}
         />
-        {/* <Route
+        <Route
           path='/category-page'
-          render={props => <CategoryPage {...props}
-            // loggedIn={loggedIn}
-          />}
+          // render={props => <CategoryPage {...props}
+          // loggedIn={loggedIn}
+          // />}
         />
         <Route
           path='/checkout/:serviceName/:serviceId'
-          render={props => 
-          <Checkout 
-          {...props} 
-          // loggedIn={loggedIn} 
-          />}
+          // render={props => <Checkout {...props} loggedIn={loggedIn} />}
         />
         <Route
           path='/card-payment'
-          render={props => 
-          <CardPayment 
-          {...props} 
-          // loggedIn={loggedIn} 
-          />}
-        /> */}
+          // render={props => <CardPayment {...props} loggedIn={loggedIn} />}
+        />
         <Redirect to='/index' />
         <Redirect from='/' to='/index' />
       </Switch>

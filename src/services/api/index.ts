@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { User } from '../../components/registration/types';
+import { UserProfileModel as UpdateUser } from '../../components/profile/types';
 
 const BASE_URL = '/';
 
@@ -68,12 +69,6 @@ export const register = (user: User) => {
   // return errRes;
 }
 
-interface UpdateUser {
-  email: string;
-  password: string;
-  newPassword: string;
-}
-
 export const update = (user: UpdateUser) => {
   // const token = localStorage.getItem('token');
   // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -117,7 +112,8 @@ export const getUserCredentials = (userId: string) => {
     data: {
       firstName: 'FName',
       lastName: "LName",
-      email: 'email@test.com'
+      email: 'email@test.com',
+      errorMessage: ''
     }
   };
   return response;
