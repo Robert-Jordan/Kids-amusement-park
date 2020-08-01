@@ -1,13 +1,14 @@
 import axios from 'axios';
+import { User } from '../../components/registration/types';
 
 const BASE_URL = '/';
 
-export const checkToken = (token) => {
+export const checkToken = (token: string) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   return axios.get(`${BASE_URL}api/users/checkToken`).catch(error => error);
 };
 
-export const login = (userName, password) => {
+export const login = (userName: string, password: string) => {
   var response;
   if (password.includes('1')) {
     response = {
@@ -40,7 +41,7 @@ export const login = (userName, password) => {
 //   password
 // }).catch(error => error);
 
-export const register = user => {
+export const register = (user: User) => {
   //axios.post(`${BASE_URL}api/users/register`, user).catch(error => error)
   // return new Promise(resolve => setTimeout(() => {}, 2000)).then(()=>{
   //   var response = {
@@ -67,8 +68,13 @@ export const register = user => {
   // return errRes;
 }
 
+interface UpdateUser {
+  email: string;
+  password: string;
+  newPassword: string;
+}
 
-export const update = user => {
+export const update = (user: UpdateUser) => {
   // const token = localStorage.getItem('token');
   // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   // return axios
@@ -102,7 +108,7 @@ export const update = user => {
   return response;
 };
 
-export const getUserCredentials = userId => {
+export const getUserCredentials = (userId: string) => {
   // const token = localStorage.getItem('token');
   // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   // return axios.get(`${BASE_URL}api/users/getUserCredentials`, userId).catch(error => error);

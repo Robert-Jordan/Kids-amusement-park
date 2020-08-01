@@ -1,7 +1,13 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import * as React from 'react';
 // redux components 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { Action } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { useSelector } from '../types';
+import { LoginModel, AuthenticationResultModel } from './types';
+import { login } from './actions';
+// router
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 // reactstrap components
 import {
   Button, Card, CardTitle, CardHeader, CardBody, CardFooter,
@@ -19,14 +25,14 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // core components
 import SignInNavbar from "../../shared/Navbars/SignInNavbar";
 import TransparentFooter from "../../shared/Footers/TransparentFooter";
-import * as actions from './actions';
 
-const LoginPage = props => {
+
+const LoginPage: React.FunctionComponent<RouteComponentProps> = props => {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState('');
   const loggingIn = useSelector(state => state.authentication.loggingIn);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<ThunkDispatch<any, any, Action>>();
 
   React.useEffect(() => {
     document.body.classList.add("login-page");
@@ -45,15 +51,15 @@ const LoginPage = props => {
     password: Yup.string().required('Password is required'),
   });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e: LoginModel) => {
     if (e.username && e.password) {
-      dispatch(actions.login(e.username, e.password))
-        .then(response => {
+      dispatch(login(e.username, e.password))
+        .then((response: AuthenticationResultModel) => {
           if (response.successfulLogin && response.errorMessage === '') {
             props.history.push('/index')
           }
         })
-        .catch(response => {
+        .catch((response: AuthenticationResultModel) => {
           setErrorMessage(response.errorMessage);
           console.log(response.errorMessage)
         });
@@ -189,9 +195,9 @@ const LoginPage = props => {
                           Get Started
                        </Button>
                         {loggingIn && (
-                          <center>
+                          // <center>
                             <FontAwesomeIcon icon={faSpinner} className="fa fa-spinner fa-spin" />
-                          </center>
+                          // </center>
                         )}
                         <div>
                         <div className="pull-left">

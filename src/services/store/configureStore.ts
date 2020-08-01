@@ -1,8 +1,25 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, Store } from 'redux';
+// react-router has its own Redux middleware, so we'll use this
+import { routerMiddleware } from 'react-router-redux';
+// We'll be using Redux Devtools. We can use the `composeWithDevTools()`
+// directive so we can pass our middleware along with it
+import { composeWithDevTools } from 'redux-devtools-extension';
+//If you use react-router, don't forget to pass in your history type.
+// import { History } from 'history';
+// Import the state interface and our combined reducers.
+import { ApplicationState, rootReducer } from './rootReducer';
 import thunk from 'redux-thunk';
-import rootReducer from './rootReducer';
 
-export default function configureStore(initialState) {
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  return createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(thunk)));
-}
+export default createStore<ApplicationState, any, any, any>(rootReducer, composeWithDevTools(applyMiddleware(thunk)
+  // , routerMiddleware(history)
+  ));
+
+  // export default function configureStore(
+  //   // history: History,
+  //   initialState: any,
+  // ): Store<ApplicationState> {
+  //   const composeEnhancers = composeWithDevTools({});
+  //   return createStore<ApplicationState, any, any, any>(rootReducer, initialState, composeEnhancers(applyMiddleware(thunk)
+  //   // , routerMiddleware(history)
+  //   ));
+  // }

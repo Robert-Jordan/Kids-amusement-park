@@ -1,5 +1,5 @@
-import React from "react";
-import { withRouter } from 'react-router-dom';
+import * as React from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 // core components
 import IndexNavbar from "../../shared/Navbars/IndexNavbar";
 import AuthenticatedNavbar from "../../shared/Navbars/AuthenticatedNavbar";
@@ -9,7 +9,11 @@ import DarkFooter from "../../shared/Footers/DarkFooter";
 import Tabs from "./Tabs";
 import Maps from "./Maps";
 
-const Index = (props) => {
+interface HomePageProps {
+  loggedIn: boolean;
+}
+
+const Index: React.SFC<HomePageProps & RouteComponentProps> = (props): JSX.Element => {
   React.useEffect(() => {
     document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");

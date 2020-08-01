@@ -1,9 +1,13 @@
-import React from "react";
+import * as React from 'react'
 // redux components 
-import { useDispatch, useSelector } from 'react-redux';
-import * as actions from './actions';
+import { useDispatch } from 'react-redux';
+import { Action } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { useSelector } from '../types';
+import { RegistrationFormFields, RegistrationResultModel } from './types';
+import { register } from './actions';
 // router
-import { withRouter, Link, NavLink } from "react-router-dom";
+import { withRouter, Link, NavLink, RouteComponentProps } from "react-router-dom";
 // reactstrap components
 import {
   Button, Card, CardHeader, CardBody, CardFooter, CardTitle,
@@ -22,8 +26,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import SignInNavbar from "../../shared/Navbars/SignInNavbar";
 import TransparentFooter from "../../shared/Footers/TransparentFooter";
 
-
-const SignUp = props => {
+const SignUp: React.FunctionComponent<RouteComponentProps> = props => {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
@@ -31,7 +34,7 @@ const SignUp = props => {
   const [confPassFocus, setConfPassFocus] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState('');
   const isRegistering = useSelector(state => state.registration.isRegistering);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<ThunkDispatch<any, any, Action>>();
 
   React.useEffect(() => {
     document.body.classList.add("signup-page");
@@ -63,14 +66,14 @@ const SignUp = props => {
         'You must enter at least 1 number, 1 upper and lowercase letter.',
       ),
     confirmPasword: Yup.string()
-      .oneOf([Yup.ref('password'), null], 'Passwords must match')
+      .oneOf([Yup.ref('password'), undefined], 'Passwords must match')
       .required('Confirm password is required'),
     acceptedTerms: Yup.boolean()
       .oneOf([true], 'Must Accept Terms and Conditions')
       .required('Must Accept Terms and Conditions'),
   });
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: RegistrationFormFields) => {
     const user = {
       firstName: e.firstName,
       lastName: e.lastName,
@@ -78,16 +81,16 @@ const SignUp = props => {
       password: e.password,
     };
     if (user.firstName && user.lastName && user.email && user.password && e.acceptedTerms) {
-      dispatch(actions.register(user))
-        .then(response => {
+      dispatch(register(user))
+        .then((response: RegistrationResultModel) => {
           if (response.successfulRegistration && response.errorMessage === '') {
             props.history.push('/login-page')
           }
         })
-        .catch(response => {
+        .catch((response: RegistrationResultModel) => {
           setErrorMessage(response.errorMessage);
           console.log(response.errorMessage)
-        });
+        })
     }
   };
 
@@ -292,7 +295,7 @@ const SignUp = props => {
                             {' '}
                               I accept the
                             {' '}
-                            <NavLink href="#">Terms &amp; Conditions</NavLink></span>
+                            <NavLink to="#">Terms &amp; Conditions</NavLink></span>
                         </Label>
                         <ErrorMessage name="acceptedTerms" component="div" className="invalid-feedback" />
                       </FormGroup>
@@ -308,9 +311,9 @@ const SignUp = props => {
                         Get Started
                       </Button>
                       {isRegistering && (
-                        <center>
-                          <FontAwesomeIcon icon={faSpinner} className="fa fa-spinner fa-spin" />
-                        </center>
+                        // <center>
+                        <FontAwesomeIcon icon={faSpinner} className="fa fa-spinner fa-spin" />
+                        // </center>
                       )}
                     </CardFooter>
                   </Form>
@@ -323,7 +326,7 @@ const SignUp = props => {
               Already have an account?{' '}
               <NavLink
                 to="/login-page"
-                tag={Link}>
+                component={Link}>
                 Sign in
               </NavLink>
             </h6>

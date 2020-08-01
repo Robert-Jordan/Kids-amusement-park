@@ -3,12 +3,10 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider as ReduxProvider } from 'react-redux';
-import configureStore from './services/store/configureStore';
-
-const store = configureStore();
+import createStore from './services/store/configureStore';
 
 ReactDOM.render(
-  <ReduxProvider store={store}>
+  <ReduxProvider store={createStore}>
     <Router>
       <App />
     </Router>

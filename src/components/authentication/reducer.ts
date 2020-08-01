@@ -1,6 +1,8 @@
+import { Reducer } from 'redux';
+import { AuthenticationState } from './types';
 import * as userConstants from './actions';
 
-const initialState = {
+const initialState: AuthenticationState = {
   loggedIn: false,
   loggingIn: false,
   loggingOut: false,
@@ -9,7 +11,7 @@ const initialState = {
   errorMessage: '',
 };
 
-const authenticationReducer = (state = initialState, action) => {
+const authenticationReducer: Reducer<AuthenticationState> = (state: AuthenticationState = initialState, action) => {
   switch (action.type) {
     case userConstants.LOGIN_REQUEST:
       return {

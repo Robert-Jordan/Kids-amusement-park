@@ -1,22 +1,28 @@
-import * as userConstants from './actions';
+import { RegistrationActions, RegistrationState } from './types';
+import { Reducer } from 'redux';
+import { REGISTER_REQUEST, REGISTER_FAILURE, REGISTER_SUCCESS } from './actions';
 
-const initialState = {
+// Type-safe initialState!
+const initialState: RegistrationState = {
   isRegistering: false,
   registered: false,
   errorMessage: ''
 };
 
-const registrationReducer = (state = initialState, action) => {
+// Unfortunately, typing of the `action` parameter seems to be broken at the moment.
+// This should be fixed in Redux 4.x, but for now, just augment your types.
+
+const registrationReducer: Reducer<RegistrationState> = (state: RegistrationState = initialState, action) => {
   switch (action.type) {
-    case userConstants.REGISTER_REQUEST:
+    case REGISTER_REQUEST:
       return {
         ...state, isRegistering: true
       };
-    case userConstants.REGISTER_SUCCESS:
+    case REGISTER_SUCCESS:
       return {
         ...state, isRegistering: false, registered: true
       };
-    case userConstants.REGISTER_FAILURE:
+    case REGISTER_FAILURE:
       return {
         ...state, errorMessage: action.errorMessage, isRegistering: false
       };
