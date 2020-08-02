@@ -45,8 +45,8 @@ describe('checkoutReducer', () => {
     describe('increaseCountOfVisitors', () => {
         it('should return increased count of adults to +1 and recalculate order total', async () => {
             // Arrange
-            const action = { type: actions.INCREASE_VISITORS_COUNT, payload: 'adult' };
-            const newAdults = action.payload === 'adult' ?
+            const action = { type: actions.INCREASE_VISITORS_COUNT, payload: {visitorType: 'adult'} };
+            const newAdults = action.payload.visitorType === 'adult' ?
                 initialState.adultsCount + 1 :
                 initialState.adultsCount;
             const newChildren = initialState.childrenCount;
@@ -66,8 +66,8 @@ describe('checkoutReducer', () => {
     describe('decreaseCountOfVisitors', () => {
         it('should return decreased count of adults to -1 and recalculate order total', async () => {
             // Arrange
-            const action = { type: actions.DECREASE_VISITORS_COUNT, payload: 'adult' };
-            const newAdults = action.payload === 'adult' ?
+            const action = { type: actions.DECREASE_VISITORS_COUNT, payload: { visitorType: 'adult' } };
+            const newAdults = action.payload.visitorType === 'adult' ?
                 (initialState.adultsCount > 0
                     ? initialState.adultsCount - 1
                     : initialState.adultsCount)
@@ -96,11 +96,11 @@ describe('checkoutReducer', () => {
             ]
             let cookerySum = calculateCookerySum(cookery);
             let serviceData = calculateServiceData();
-            const action = { type: actions.UPDATE_COOKERY, payload: cookery };
+            const action = { type: actions.UPDATE_COOKERY, payload: { cookery: cookery } };
 
             const expectedState = {
                 ...initialState,
-                cookery: action.payload,
+                cookery: action.payload.cookery,
                 total: cookerySum,
                 serviceData: serviceData,
             };
@@ -125,11 +125,11 @@ describe('checkoutReducer', () => {
             ];
             let decorationsSum = calculateDecorationsSum(decorations);
             let serviceData = calculateServiceData();
-            const action = { type: actions.UPDATE_DECORATIONS, payload: decorations };
+            const action = { type: actions.UPDATE_DECORATIONS, payload: { decorations: decorations }};
 
             const expectedState = {
                 ...initialState,
-                decorations: action.payload,
+                decorations: action.payload.decorations,
                 total: decorationsSum,
                 serviceData: serviceData,
             };
@@ -153,12 +153,12 @@ describe('checkoutReducer', () => {
                 price: 1900
             };
             let serviceData = calculateServiceData();
-            const action = { type: actions.SET_ANIMATOR, payload: animator };
+            const action = { type: actions.SET_ANIMATOR, payload: { animator: animator } };
 
             const expectedState = {
                 ...initialState,
-                animator: action.payload,
-                total: action.payload.price,
+                animator: action.payload.animator,
+                total: action.payload.animator.price,
                 serviceData: serviceData,
             };
 
@@ -181,12 +181,12 @@ describe('checkoutReducer', () => {
                 price: 2300
             };
             let serviceData = calculateServiceData();
-            const action = { type: actions.SET_ANIMATOR, payload: animator };
+            const action = { type: actions.SET_ANIMATOR, payload: { animator: animator } };
 
             const expectedState = {
                 ...initialState,
-                animator: action.payload,
-                total: action.payload.price,
+                animator: action.payload.animator,
+                total: action.payload.animator.price,
                 serviceData: serviceData,
             };
 
@@ -213,12 +213,12 @@ describe('checkoutReducer', () => {
                 price: 2300
             };
             let serviceData = calculateServiceData();
-            const action = { type: actions.SET_ANIMATOR, payload: animator };
+            const action = { type: actions.SET_ANIMATOR, payload: { animator: animator } };
 
             const expectedState = {
                 ...initialState,
-                animator: action.payload,
-                total: action.payload.price,
+                animator: action.payload.animator,
+                total: action.payload.animator.price,
                 serviceData: serviceData,
             };
 
