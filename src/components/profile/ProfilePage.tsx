@@ -46,7 +46,7 @@ const ProfilePage: React.FunctionComponent<RouteComponentProps> = props => {
   const isUpdating = useSelector(state => state.profile.isUpdating);
   const userId = useSelector(state => state.authentication.userId);
   const dispatch = useDispatch<ThunkDispatch<any, any, Action>>();
-  // const successfullOrders = useSelector(state => state.checkout.successfullOrders); TODO FIX
+  const successfullOrders = useSelector(state => state.checkout.successfullOrders);
 
   const generateId = () => {
     var S4 = function () {
@@ -258,16 +258,16 @@ const ProfilePage: React.FunctionComponent<RouteComponentProps> = props => {
                   <th>Time</th>
                   <th>Total</th>
                 </tr>
-                {/* {successfullOrders && successfullOrders.length &&
+                {successfullOrders && successfullOrders.length > 0 &&
                  successfullOrders.map(order =>
                   <tr>
                     <td>{generateId()}</td>
-                    <td>{order.serviceData.title}</td>
+                    <td>{order.title}</td>
                     <td>{order.selectedDate}</td>
                     <td>{order.selectedTime.startTime}-{order.selectedTime.endTime}</td>
                     <td>{order.total}&#8372;</td>
                   </tr>
-                )} */}
+                )}
               </table>
           </Container>
         </div>

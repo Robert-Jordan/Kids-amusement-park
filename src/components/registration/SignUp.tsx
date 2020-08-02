@@ -276,9 +276,9 @@ const SignUp: React.FunctionComponent<RouteComponentProps> = props => {
                           placeholder="Confirm password*"
                           onFocus={() => setConfPassFocus(true)}
                           onBlur={() => setConfPassFocus(false)}
-                          className={`form-control${
-                            errors.confirmPasword && touched.confirmPasword ? ' is-invalid' : ''
-                            }`}
+                          // className={`form-control${
+                          //   errors.confirmPasword !== undefined && errors.confirmPasword && touched.confirmPasword ? ' is-invalid' : ''
+                          //   }`}
                         />
                         <ErrorMessage name="confirmPasword" component="div" className="invalid-feedback" />
                       </InputGroup>

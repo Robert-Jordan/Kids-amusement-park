@@ -1,20 +1,4 @@
 import React from "react";
-import { useDispatch, useSelector } from 'react-redux';
-// reactstrap components
-import {
-  InputGroupAddon, InputGroupText, InputGroup, Container,
-  Alert, CardHeader, CardBody, CardFooter, Col, Button
-} from "reactstrap";
-// formik+yup
-import {
-  Formik, Field, Form, ErrorMessage
-} from 'formik';
-import * as Yup from 'yup';
-// fontawesome
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-// redux
-import * as actions from '../../components/profile/actions';
 
 const ProfilePageHeader = (props) => {
   let pageHeader = React.createRef();

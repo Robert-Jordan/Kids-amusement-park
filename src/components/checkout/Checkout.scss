@@ -1,0 +1,350 @@
+// // VARIABLES
+
+$base-color: black;
+$font-size-title: 40px;
+$base-font-family: 'Nucleo Outline';
+$base-font-weight-title: 600;
+
+$font-size-text: 24px;
+$base-font-weight-text: 300;
+
+// CSS
+
+.nav-link {
+    color: white;
+}
+
+.section-checkout {
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-bottom: 50px;
+}
+
+// .section {
+//     padding: 30px 150px;
+// }
+
+.checkout-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    &-text {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: space-between;
+
+        &__value {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            font-family: $base-font-family;
+            color: $base-color;
+            font-size: $font-size-title;
+            font-weight: $base-font-weight-title;
+        }
+
+        &__title {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            font-family: $base-font-family;
+            color: $base-color;
+            font-size: $font-size-title;
+            font-weight: $base-font-weight-title;
+        }
+        &__title2 {
+            font-family: $base-font-family;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: $base-color;
+            font-size: $font-size-text;
+            font-weight: $base-font-weight-text;
+        }
+    }
+
+    &__img {
+        max-width: 1500px;
+        max-height: 1500px;
+        margin: 0 auto;
+    }
+}
+
+
+.celebrity-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+        // color: rgb(52, 118, 148);
+        font-weight: 600;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    &__btn {
+        width: 300px;
+        border: 2px solid rgb(122, 134, 141);
+        outline: none !important;
+        color: black;
+        margin: 0;
+        border-radius: 40px;
+        background-color: #fff;
+    }
+
+    &__btn .form-control {
+        border: none;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        color: grey;
+    }
+
+    b,
+    p {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    b {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+}
+
+.btn {
+    border: 2px solid rgb(122, 134, 141);
+
+
+    &:hover {
+        background-color: rgba(37, 111, 124, 0.6) !important;
+        color: white;
+    }
+}
+
+.btn__text {
+    font-size: 20px;
+    color: grey;
+    font-weight: 600;
+    margin: 0;
+}
+
+
+.date-button-block {
+    padding: 50px 220px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+// GUESTS
+
+.guests {
+padding-top: 0px;
+    &-block {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgba(116, 112, 102, 0.2);
+        margin: 25px 0;
+        padding: 25px 0;
+
+        &__text {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        &__price {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        &__img {
+            width: 140px;
+            height: 140px;
+        }
+    }
+    &__title {
+        color: rgb(52, 118, 148);
+        font-size: 36px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    &__btn {
+        margin-top: 45px;
+        font-size: 24px;
+        padding: 15px 55px;
+        border-radius: 20px;
+        outline: 0 !important;
+        background: rgba(37, 111, 124, 0.6);
+        color: white;
+        border: 2px solid white;
+    }
+}
+
+
+.guests-block-counter {
+    display: flex;
+    align-items: center;
+
+    &__btn {
+        padding: 30px 40px;
+        border-radius: 25px;
+        margin: 0 15px;
+        outline: 0 !important;
+        background: rgba(37, 111, 124, 0.6);
+        color: #fff;
+        font-size: 24px;
+
+    }
+
+    &__value {
+        font-size: 40px;
+        margin: 0;
+        font-weight: 400;
+    }
+}
+
+
+// MENU
+
+.menu-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu {
+    padding: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+        font-size: 48px;
+        font-weight: 600;
+        margin: 0 20px 20px 20px;
+    }
+
+    &__btn {
+        padding: 20px 30px;
+        border-radius: 25px;
+        margin: 0 15px;
+        outline: 0 !important;
+        background: rgba(37, 111, 124, 0.6);
+        color: #fff;
+        font-size: 20px;
+    }
+}
+
+.animators-menu {
+    align-items: initial;
+}
+
+.animators-menu button {
+    width: 74px;
+    align-self: center;
+
+}
+
+.payment-block {
+    padding-top: 100px;
+
+
+    &__title {
+        color: rgb(52, 118, 148);
+        font-size: 36px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    label {
+        font-size: 24px;
+        font-weight: 500
+    }
+}
+
+
+
+.input-block {
+    padding-left: 250px;
+    padding-right: 250px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bk, .rb {
+    zoom: 1.8;
+    margin-left: 5px;
+}
+
+
+.cash {
+    zoom: 1.8;
+    margin-left: 5px;
+}
+
+.optional {
+
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &__text {
+        width: 110px;
+        font-size: 34px;
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+}
+
+
+
+.button {
+    margin-left: 30px;
+    padding: 20px 30px;
+    border: none;
+}
+
+.toggleButtons {
+    transform: scale(2);
+}
+
+.animator {
+    margin-left: 10px;
+
+    &__text {
+        font-size: 38px;
+    }
+
+    &-block {
+        margin-top: 50px;
+    }
+}
+
+.expand-receipt {
+    -webkit-transform: rotate(-90deg);
+    padding: 5px 10px 0;
+    outline: 0 !important;
+    background: rgba(37, 111, 124, 0.6);
+    color: white;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    position: fixed;
+    right: -1.4%;
+    top: 10.2%;
+    z-index: 9999;
+    p {
+        font-size: 27px;
+        font-weight: 500;
+    }
+}
+
+.order-none {
+    display: none;
+}

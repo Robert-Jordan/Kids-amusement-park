@@ -14,8 +14,8 @@ import LoginPage from "./components/authentication/LoginPage";
 import ProfilePage from "./components/profile/ProfilePage";
 import PrivateRoute from './shared/Routes/PrivateRoute';
 import CategoryPage from './components/category/CategoryPage';
-// import Checkout from './components/checkout/Checkout';
-// import CardPayment from './components/checkout/CardPayment/CardPayment';
+import Checkout from './components/checkout/Checkout';
+import CardPayment from './components/checkout/CardPayment/CardPayment';
 
 
 const App = () => {
@@ -56,11 +56,11 @@ const App = () => {
         />
         <Route
           path='/checkout/:serviceName/:serviceId'
-          // render={props => <Checkout {...props} loggedIn={loggedIn} />}
+          render={props => <Checkout {...props} loggedIn={loggedIn} />}
         />
         <Route
           path='/card-payment'
-          // render={props => <CardPayment {...props} loggedIn={loggedIn} />}
+          render={props => <CardPayment {...props} loggedIn={loggedIn} />}
         />
         <Redirect to='/index' />
         <Redirect from='/' to='/index' />
