@@ -91,7 +91,7 @@ const checkoutReducer: Reducer<CheckoutState> = (state: CheckoutState = initialS
       };
     case actions.UPDATE_COOKERY:
       let totalCook = calculateTotal(state, state.adultsCount,
-        state.childrenCount, action.payload, state.decorations,
+        state.childrenCount, action.payload.cookery, state.decorations,
         state.animator)
       return {
         ...state,
