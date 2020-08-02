@@ -4,13 +4,13 @@ import { combineReducers, Reducer } from 'redux';
 import registrationReducer from '../../components/registration/reducer';
 import authenticationReducer from '../../components/authentication/reducer';
 import profileReducer from '../../components/profile/reducer';
-// import categoriesReducer from '../../components/category/reducer';
+import categoriesReducer from '../../components/category/reducer';
 // import checkoutReducer from '../../components/checkout/reducer';
 // //types
 import { AuthenticationState } from '../../components/authentication/types';
 import { RegistrationState } from '../../components/registration/types';
 import { ProfileState } from '../../components/profile/types';
-// import { CategoryState } from '../../components/category/types';
+import { CategoryState } from '../../components/category/types';
 // import { CheckoutState } from '../../components/checkout/types';
 
 // The top-level state object
@@ -18,7 +18,7 @@ export interface ApplicationState {
     registration: RegistrationState;
     authentication: AuthenticationState;
     profile: ProfileState;
-    // categories: CategoryState;
+    categories: CategoryState;
     // checkout: CheckoutState;
 }
 
@@ -29,7 +29,7 @@ export const rootReducer: Reducer<ApplicationState> = combineReducers<Applicatio
     registration: registrationReducer,
     authentication: authenticationReducer,
     profile: profileReducer,
-    // categories: categoriesReducer,
+    categories: categoriesReducer,
     // checkout: checkoutReducer,
 });
 

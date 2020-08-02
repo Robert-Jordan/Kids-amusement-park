@@ -13,7 +13,7 @@ import SignUp from "./components/registration/SignUp";
 import LoginPage from "./components/authentication/LoginPage";
 import ProfilePage from "./components/profile/ProfilePage";
 import PrivateRoute from './shared/Routes/PrivateRoute';
-// import CategoryPage from './components/category/CategoryPage';
+import CategoryPage from './components/category/CategoryPage';
 // import Checkout from './components/checkout/Checkout';
 // import CardPayment from './components/checkout/CardPayment/CardPayment';
 
@@ -50,9 +50,9 @@ const App = () => {
         />
         <Route
           path='/category-page'
-          // render={props => <CategoryPage {...props}
-          // loggedIn={loggedIn}
-          // />}
+          render={props => <CategoryPage {...props}
+          loggedIn={loggedIn}
+          />}
         />
         <Route
           path='/checkout/:serviceName/:serviceId'

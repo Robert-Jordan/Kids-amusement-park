@@ -1,3 +1,4 @@
+import { Service, Cookery, Animators, AdditionalServices } from '../../components/category/types';
 import Item1 from '../../assets/img/FestivalTable.jpg'
 import Item2 from '../../assets/img/AngryBirds.jpg'
 import Item3 from '../../assets/img/Masha.jpg'
@@ -27,7 +28,7 @@ const possibleTimeForGameRooms = [{
 }
 ]
 
-export const cookery = [{
+export const cookery: Cookery[] = [{
     name: "Cake",
     portion: "800g",
     price: 200
@@ -69,7 +70,7 @@ export const cookery = [{
 }
 ]
 
-export const animators = [{
+export const animators: Animators[] = [{
     name: "Little Pony",
     price: 2000
 },
@@ -99,7 +100,7 @@ export const animators = [{
 },
 ];
 
-export const additionalServices = [{
+export const additionalServices: AdditionalServices[] = [{
     name: "Pinata",
     price: 200
 },
@@ -125,7 +126,7 @@ export const serviceCities = [
     { name: "Kyiv" },
 ];
 
-export const services = [{
+export const services: Service[] = [{
     id: 1,
     title: 'Snow White and the Seven Dwarfs',
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",
@@ -193,7 +194,6 @@ export const services = [{
     animators: animators,
     additionalServices: additionalServices,
 },
-
 {
     id: 5,
     title: 'Room of fear',
